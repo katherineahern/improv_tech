@@ -4,22 +4,28 @@ body {
   font-family: sans-serif;
 }
 
-* {
-    box-sizing: border-box;
+
+.table {
+    display:  table;
+    width: 100%;
+    top: 40px; /* Header Height */
+    bottom: 20px; /* Footer Height */
+    background-color:#eee;
+    border:1px solid  #666666;
+    border-spacing:5px;/*cellspacing:poor IE support for  this*/
 }
-.header {
-    border: 1px solid red;
-    padding: 15px;
+.row {
+	border:1px solid  #666666;
+	display:table-row;
+    width:auto;
+    line-height: 300%;
 }
-.row::after {
-    content: "";
-    clear: both;
-    display: table;
+
+.col {
+	border:1px solid  #666666;
+	display:table-column;
+	width: 40%;
+	float: left;
+	line-height: 300%;
 }
-[class*="col-"] {
-    float: left;
-    padding: 15px;
-    border: 1px solid red;
-}
-.col-1 {width: 50%;}
-.col-2 {width: 50%;}
+

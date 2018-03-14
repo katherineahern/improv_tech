@@ -5,17 +5,24 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="table">
+        <div className="row">
+          <Emotion emotionName="Happy" />
+          <Emotion emotionName="Sad" />
+        </div>
+        <div className="row">
+          <Emotion emotionName="Angry" />
+          <Emotion emotionName="Fearful" />
+        </div>
       </div>
     );
   }
+}
+
+function Emotion(props) {
+  return (
+    <div className="col">{props.emotionName}</div>
+  );
 }
 
 export default App;

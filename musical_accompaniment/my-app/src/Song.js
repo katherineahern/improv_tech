@@ -7,10 +7,11 @@ import fearful from './songs/fearful.m4a';
 class Song extends React.Component {
 
 	 render() { 
+	 	console.log(this);
 	  	switch(this.props.emotion) {
 		    case 'happy':
 		      return (
-		        <source src={happy} type="audio/mpeg" />
+		        <source src={happy} type="audio/mpeg"/>
 		      );
 		      break;
 		    case 'sad':

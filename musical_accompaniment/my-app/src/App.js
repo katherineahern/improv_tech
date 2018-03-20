@@ -47,9 +47,9 @@ class App extends Component {
 }
 
 function Emotion(props) {
-  return (
+  return ( 
     <div className="col">
-      {props.emotionName}<br/>
+      <img src={ require('./images/' + props.emotionName.toLowerCase() + '.svg') } /><br/>
       <audio controls>
         <Song emotion={props.emotionName.toLowerCase()} />
       </audio>

@@ -9,15 +9,14 @@ class App extends Component {
     this.state = { palette: 'none' };
     // TODO: refactor so this isn't necessary
     this.handlePaletteChange = this.handlePaletteChange.bind(this);
+    
   }
 
-
-  handlePaletteChange(changeEvent){
+  handlePaletteChange(changeEvent) {
     this.setState({
       palette: changeEvent.target.value
     });
   }
- 
 
   render() {
     return (
@@ -46,29 +45,26 @@ class App extends Component {
   }
 }
 
-function Emotion(props) {
-  return ( 
-    <div className="col">
-      <img src={ require('./images/' + props.emotionName.toLowerCase() + '.svg') } /><br/>
-      <audio controls>
-        <Song emotion={props.emotionName.toLowerCase()} />
-      </audio>
-    </div>
-  );
-}
-
-
-
-function getPalette(option) {
-    console.log(this);
-    return option;
+class Emotion extends Component {
+  constructor(props) {
+    super(props);    
+    this.playSong = this.playSong.bind(this);
   }
-
-
-function changePalette(props) {
-  console.log(this);
-  //this.state.palette = 'funk';
+  playSong(feeling) {
+    console.log(this.refs);
+    var audio = this.refs['audio'];
+    audio.play();
+  }
+  render() {
+    return ( 
+      <div className="col" >      
+          <img src={ require('./images/' + this.props.emotionName.toLowerCase() + '.svg') } onClick={this.playSong}/><br/>
+          <audio controls ref='audio'  >
+            <Song emotion={this.props.emotionName.toLowerCase()} />
+          </audio>    
+      </div>
+    );
+  }
 }
-
 
 export default App;

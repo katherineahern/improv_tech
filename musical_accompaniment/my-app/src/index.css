@@ -29,7 +29,7 @@ body {
 	border:1px solid  #666666;
 	display:table-row;
     width:auto;
-    line-height: 300%;
+    line-height: 100%;
 }
 
 .col {
@@ -37,6 +37,6 @@ body {
 	display:table-column;
 	width: 40%;
 	float: left;
-	line-height: 300%;
+	line-height: 100%;
 }
 

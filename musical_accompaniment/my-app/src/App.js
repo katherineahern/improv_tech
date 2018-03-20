@@ -7,15 +7,10 @@ class App extends Component {
 
     super(props);
     this.state = { palette: 'none' };
-    // This binding is necessary to make `this` work in the callback
+    // TODO: refactor so this isn't necessary
     this.handlePaletteChange = this.handlePaletteChange.bind(this);
   }
 
-  setPalette(option) {
-    this.setState({
-      palette: option
-    });
-  }
 
   handlePaletteChange(changeEvent){
     this.setState({
@@ -26,23 +21,25 @@ class App extends Component {
 
   render() {
     return (
-      <div className="table">
-        <div className="row">
-            {this.state.palette}
-            <form action="">
-              <input type="radio" value='none' checked={ this.state.palette === 'none' } onChange={this.handlePaletteChange}/> None
-              <input type="radio" value='lounge' checked={ this.state.palette === 'lounge' } onChange={this.handlePaletteChange}/> Lounge
-              <input type="radio" value='funk' checked={ this.state.palette === 'funk' } onChange={this.handlePaletteChange}/> Funk
-              <input type="radio" value='latin' checked={ this.state.palette === 'latin' } onChange={this.handlePaletteChange}/> Latin
-            </form>
-        </div>
-        <div className="row">
-          <Emotion emotionName="Happy" />
-          <Emotion emotionName="Sad" />
-        </div>
-        <div className="row">
-          <Emotion emotionName="Angry" />
-          <Emotion emotionName="Fearful" />
+      <div className={ this.state.palette } >
+        <div className="table">
+          <div className="row">
+              {this.state.palette}
+              <form action="">
+                <input type="radio" value='none' checked={ this.state.palette === 'none' } onChange={this.handlePaletteChange}/> None
+                <input type="radio" value='lounge' checked={ this.state.palette === 'lounge' } onChange={this.handlePaletteChange}/> Lounge
+                <input type="radio" value='funk' checked={ this.state.palette === 'funk' } onChange={this.handlePaletteChange}/> Funk
+                <input type="radio" value='latin' checked={ this.state.palette === 'latin' } onChange={this.handlePaletteChange}/> Latin
+              </form>
+          </div>
+          <div className="row">
+            <Emotion emotionName="Happy" palette={ this.state.palette } />
+            <Emotion emotionName="Sad" palette={ this.state.palette } />
+          </div>
+          <div className="row">
+            <Emotion emotionName="Angry" palette={ this.state.palette } />
+            <Emotion emotionName="Fearful" palette={ this.state.palette } />
+          </div>
         </div>
       </div>
     );

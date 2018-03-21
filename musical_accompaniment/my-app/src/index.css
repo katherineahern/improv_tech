@@ -1,7 +1,10 @@
 body {
-  margin: 0;
-  padding: 0;
+  
+  margin: auto;
+  width: 90%;
   font-family: sans-serif;
+  text-align:center;
+  align: middle;
 }
 .none {
   background-color:#bfbfbf;
@@ -16,27 +19,39 @@ body {
   background-color:#ffcc99;
 }
 
+img {
+  height:200px;
+  width:200px;
+}
 .table {
+    text-align:center;
+    margin: 0 auto;
     display:  table;
     width: 100%;
     top: 40px; /* Header Height */
     bottom: 20px; /* Footer Height */
-    
     border:1px solid  #666666;
     border-spacing:5px;/*cellspacing:poor IE support for  this*/
 }
 .row {
+  text-align:center;
 	border:1px solid  #666666;
 	display:table-row;
-    width:auto;
-    line-height: 100%;
+  width:auto;
+  padding: 5%;
+  line-height: 100%;
 }
 
 .col {
+  background-color:#ffffff;
 	border:1px solid  #666666;
 	display:table-column;
 	width: 40%;
 	float: left;
 	line-height: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 

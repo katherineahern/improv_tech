@@ -23,7 +23,7 @@ class App extends Component {
       <div className={ this.state.palette } >
         <div className="table">
           <div className="row">
-              {this.state.palette}
+              {this.state.palette.toUpperCase()}
               <form action="">
                 <input type="radio" value='none' checked={ this.state.palette === 'none' } onChange={this.handlePaletteChange}/> None
                 <input type="radio" value='lounge' checked={ this.state.palette === 'lounge' } onChange={this.handlePaletteChange}/> Lounge
@@ -53,6 +53,7 @@ class Emotion extends Component {
   playSong(feeling) {
     console.log(this.refs);
     var audio = this.refs['audio'];
+    audio.currentTime = 0;
     audio.play();
   }
   render() {
@@ -60,7 +61,7 @@ class Emotion extends Component {
       <div className="col" >      
           <img src={ require('./images/' + this.props.emotionName.toLowerCase() + '.svg') } onClick={this.playSong}/><br/>
           <audio controls ref='audio'  >
-            <Song emotion={this.props.emotionName.toLowerCase()} />
+            <Song emotion={this.props.emotionName.toLowerCase()} palette={ this.props.palette } />
           </audio>    
       </div>
     );

@@ -8,16 +8,11 @@ import fearful from './songs/fearful.m4a';
 class Song extends React.Component {
 	constructor(props) {
 
-	    super(props);
-	    this.state = { palette: 'none' };
-	    // TODO: refactor so this isn't necessary
-	    this.playSong = this.playSong.bind(this);
-	  }
+		super(props);
+		
+	}
 
 
-	  playSong(changeEvent){
-	    console.log("playing song");
-	  }
 	
 	 render() { 
 	 	console.log(this);

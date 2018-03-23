@@ -16,6 +16,7 @@ import latin_sad from './songs/latin_sad.m4a';
 import rock_sad from './songs/rock_sad.m4a';
 
 class Song extends React.Component {
+	//set initial state counter = 0, to interate through song array for each style
 	constructor(props) {
 		super(props);
 		this.state = {palette: this.props.palette};

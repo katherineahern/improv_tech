@@ -15,6 +15,11 @@ import jazz_sad from './songs/jazz_sad.m4a';
 import latin_sad from './songs/latin_sad.m4a';
 import rock_sad from './songs/rock_sad.m4a';
 
+import funk_fear from './songs/fear_funk.m4a';
+import jazz_fear from './songs/fear_jazz.m4a';
+import latin_fear from './songs/fear_latin.m4a';
+import rock_fear from './songs/rock_fear.m4a';
+
 class Song extends React.Component {
 	//set initial state counter = 0, to interate through song array for each style
 	constructor(props) {
@@ -27,9 +32,9 @@ class Song extends React.Component {
 	 	var songSelection = {
 			"happy": { "none": [rock_happy], "funk": [funk_happy], "jazz": [jazz_happy], "latin": [latin_happy] },
 			"sad": {  "none": [rock_sad], "funk": [funk_sad], "jazz": [jazz_sad], "latin": [latin_sad] },
-			//redo angry and fearful
+			//redo angry 
 			"angry": { "none": [rock_happy], "funk": [funk_happy], "jazz": [jazz_happy], "latin": [latin_happy] },
-			"fearful": {  "none": [rock_sad], "funk": [funk_sad], "jazz": [jazz_sad], "latin": [latin_sad] }
+			"fearful": {  "none": [rock_fear], "funk": [funk_fear], "jazz": [jazz_fear], "latin": [latin_fear] }
 		};
 	 	console.log(songSelection[this.props.emotion][this.props.palette][0]);
 	 	return songSelection[this.props.emotion][this.state.palette][0];

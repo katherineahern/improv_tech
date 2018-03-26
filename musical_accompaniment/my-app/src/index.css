@@ -1,5 +1,19 @@
+/*
+color scheme ideas (supercedes current scheme):
+    HIGHLIGHTS -- blue: #006699, pink: #FF0066, green: #FF0066, orange: #FF6633, yellow: #FF9933
+    (build subtles from here)
+
+*/
+
+:root {
+    --none:#dfdfdf;
+    --lounge1:#99ccff;
+    --funk1:#c2c2a3;
+    --latin1:#ffcc99;
+}
+
 body {
-  
+
   margin: auto;
   width: 90%;
   font-family: sans-serif;
@@ -7,21 +21,22 @@ body {
   align: middle;
 }
 .none {
-  background-color:#bfbfbf;
-}
-.jazz {
-  background-color:#99ccff;
-}
-.funk {
-  background-color:#c2c2a3;
-}
-.latin {
-  background-color:#ffcc99;
+  background-color: var(--none);
 }
 
-img {
+.jazz {
+  background-color: var(--lounge1);
+}
+.funk {
+  background-color: var(--funk1);
+}
+.latin {
+  background-color: var(--latin1);
+}
+
+.col img {
   height:200px;
-  width:200px;
+  width:100%;
 }
 .table {
     text-align:center;
@@ -30,28 +45,34 @@ img {
     width: 100%;
     top: 40px; /* Header Height */
     bottom: 20px; /* Footer Height */
-    border:1px solid  #666666;
-    border-spacing:5px;/*cellspacing:poor IE support for  this*/
 }
 .row {
   text-align:center;
-	border:1px solid  #666666;
-	display:table-row;
-  width:auto;
-  padding: 5%;
+	display:flex;
+  box-sizing: border-box;
+  flex-direction: row;
+  width: auto;
+  padding: 1%;
   line-height: 100%;
+}
+.row form {
+  width: 100%;
+
 }
 
 .col {
-  background-color:#ffffff;
-	border:1px solid  #666666;
-	display:table-column;
-	width: 40%;
-	float: left;
+  background-color: rgba(255,255,255,.4);
+  box-sizing: border-box;
+  box-shadow: grey 0px 1px 5px;
+  border:1px solid  #333;
+  display: flex;
+  flex-direction: column;
+  width: 47%;
+  margin: 1%;
 	line-height: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-right: 10px;
-  margin-left: 10px;
+
 }
 
+.col audio {
+  width: 100%;
+}

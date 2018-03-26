@@ -23,7 +23,8 @@ body {
 .none {
   background-color: var(--none);
 }
-.lounge {
+
+.jazz {
   background-color: var(--lounge1);
 }
 .funk {
@@ -62,7 +63,7 @@ body {
 .col {
   background-color: rgba(255,255,255,.4);
   box-sizing: border-box;
-  box-shadow: grey 0px 1px 5px
+  box-shadow: grey 0px 1px 5px;
   border:1px solid  #333;
   display: flex;
   flex-direction: column;

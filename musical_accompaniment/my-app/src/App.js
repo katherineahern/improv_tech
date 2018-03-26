@@ -26,7 +26,7 @@ class App extends Component {
               {this.state.palette.toUpperCase()}
               <form action="">
                 <input type="radio" value='none' checked={ this.state.palette === 'none' } onChange={this.handlePaletteChange}/> None
-                <input type="radio" value='lounge' checked={ this.state.palette === 'lounge' } onChange={this.handlePaletteChange}/> Lounge
+                <input type="radio" value='jazz' checked={ this.state.palette === 'jazz' } onChange={this.handlePaletteChange}/> Lounge
                 <input type="radio" value='funk' checked={ this.state.palette === 'funk' } onChange={this.handlePaletteChange}/> Funk
                 <input type="radio" value='latin' checked={ this.state.palette === 'latin' } onChange={this.handlePaletteChange}/> Latin
               </form>
@@ -51,8 +51,8 @@ class Emotion extends Component {
     this.playSong = this.playSong.bind(this);
   }
   playSong(feeling) {
-    console.log(this.refs);
     var audio = this.refs['audio'];
+    audio.load();
     audio.currentTime = 0;
     audio.play();
   }
@@ -60,7 +60,7 @@ class Emotion extends Component {
     return ( 
       <div className="col" >      
           <img src={ require('./images/' + this.props.emotionName.toLowerCase() + '.svg') } onClick={this.playSong}/><br/>
-          <audio controls ref='audio'  >
+          <audio controls ref='audio' key={ this.props.emotionName + this.props.palette } > //key to rerender audio
             <Song emotion={this.props.emotionName.toLowerCase()} palette={ this.props.palette } />
           </audio>    
       </div>

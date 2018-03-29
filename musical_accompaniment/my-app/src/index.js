@@ -9,10 +9,10 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 ReactDOM.render(
 	<Router>
-		<div>
-	        <Route path="/" component={App}/>
+		<Switch>
+	        <Route exact path="/" component={App}/>
 	        <Route path="/music" component={MusicalAccompaniment}/>
-	    </div>
+	    </Switch>
     </Router>
       , document.getElementById('root'));
 registerServiceWorker();

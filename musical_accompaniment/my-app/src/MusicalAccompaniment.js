@@ -2,46 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import Song from './Song';
 
-class App extends Component {
-  constructor(props) {
-
-    super(props);
-  }
-  render() {
-    return (
-      <div>
-        
-        <h1>Home!</h1>
-      </div>
-    );
-  }
-  /*render() {
-    return (
-      <Router>
-          <Route path="/" component={Home}/>
-          <Route path="/music" component={MusicalAccompaniment}/>
-          <Route path="/line_hat" component={LineHat}/>
-      </Router>
-    );
-  }*/
-}
-
-class Home extends Component {
-  render() {
-    return (
-      <h1>Home!</h1>
-    );
-  }
-}
-
-class LineHat extends Component {
-  render() {
-    return (
-      <h1>Lines from a hat!</h1>
-    );
-  }
-}
-
 class MusicalAccompaniment extends Component {
   constructor(props) {
 
@@ -108,4 +68,4 @@ class Emotion extends Component {
   }
 }
 
-export default App;
+export default MusicalAccompaniment;

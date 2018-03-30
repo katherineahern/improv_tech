@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Sound from 'react-sound';
 import happy from './songs/happy_cha_cha.m4a';
 import sad from './songs/sad.m4a';
 import angry from './songs/angry.m4a';
@@ -30,7 +29,7 @@ class Song extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {palette: this.props.palette};
-		this.getSongSrc = this.getSongSrc.bind(this);	
+		this.getSongSrc = this.getSongSrc.bind(this);
 	}
 	getSongSrc() {
 		console.log(this.props);
@@ -44,14 +43,13 @@ class Song extends React.Component {
 	 	return songSelection[this.props.emotion][this.state.palette][0];
 	 }
 
-	render() { 
+	render() {
 	 	return (
 	    	<source src={this.getSongSrc()} type="audio/mpeg" />
 	    );
-	  	
+
 	 }
 }
 
 // Must export!
 export default Song;
-

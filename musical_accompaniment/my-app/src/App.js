@@ -12,7 +12,8 @@ class App extends Component {
       <div>
         <h1>Home!</h1>
         <p><a href="music">Single player musical accompaniment</a></p>
-        <p><a href="LineHat">Lines from a hat</a></p>
+        <p><a href="LineHat">Post line</a></p>
+        <p><a href="GetLine">Get line</a></p>
       </div>
     );
   }

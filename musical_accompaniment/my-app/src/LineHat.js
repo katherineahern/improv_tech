@@ -8,32 +8,29 @@ function addLine() {}; //defined here to prevent error
 
 class LineHat extends Component {
 
-
 	constructor () {
 		super();
 		this.state = {
-	    	line: ''
-	  	}
-		
+	    line: ''
+	  }
+		this.handleChange = event => {
+    this.setState({ line: event.target.value });
+  }
 
-    this.handleChange = event => {
-      this.setState({ line: event.target.value });
-    }
+  this.handleSubmit = event => {
+    event.preventDefault();
 
-    this.handleSubmit = event => {
-      event.preventDefault();
+    const line = {
+      line: this.state.line
+    };
 
-      const line = {
-        line: this.state.line
-      };
-
-      axios.post('http://ec2-18-232-81-165.compute-1.amazonaws.com:8080/api/lines', line, {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        })
-        .then(res => {
-          console.log(res);
-          console.log(res.message);
-        })
+    axios.post('http://ec2-18-232-81-165.compute-1.amazonaws.com:8080/api/lines', line, {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      })
+      .then(res => {
+        console.log(res);
+        console.log(res.message);
+      })
     }
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);

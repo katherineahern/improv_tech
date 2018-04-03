@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './linehat.css';
-import axios from 'axios'
+import axios from 'axios';
 
 
 var lineList = [];
@@ -12,13 +12,36 @@ class LineHat extends Component {
 	constructor () {
 		super();
 		this.state = {
-	    	response: {}
+	    	line: ''
 	  	}
-		this.handleClick = this.handleClick.bind(this)
+		
+
+    this.handleChange = event => {
+      this.setState({ line: event.target.value });
+    }
+
+    this.handleSubmit = event => {
+      event.preventDefault();
+
+      const line = {
+        line: this.state.line
+      };
+
+      axios.post('http://ec2-18-232-81-165.compute-1.amazonaws.com:8080/api/lines', line, {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        })
+        .then(res => {
+          console.log(res);
+          console.log(res.message);
+        })
+    }
+    this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 
 
     //list of prompts for audience input
-      this.promptList = ["A line from a movie",
+    this.promptList = ["A line from a movie",
       "What did someone in your family always used to say",
       "Something personal about you",
       "What you say when people surprise you",
@@ -35,15 +58,8 @@ class LineHat extends Component {
       var s = n.toString();
       this.lc = s.substr(s.length - 1);
       console.log(this.lc);
-      //replaces default text with a prompt
-      //document.getElementById('audPrompt').innerHTML = promptList[lc];
+      
 
-    function addLine() {var newLineList = document.getElementById("audGetInput").value; /*sets var to be added to array*/
-           lineList.push(newLineList);  /*add new item to array*/
-           document.getElementById("demo").innerHTML = newLineList; /* test array update by displaying in p element */
-    };
-//    this.promptList = this.promptList.bind(this)
-//    this.lc = this.lc.bind(this)
 
 	}
   	render() {
@@ -54,13 +70,14 @@ class LineHat extends Component {
           </header>
         <div class ="row">
           <div class ="linehat">
-           <form action="/sendInfoToBackend.magik" onsubmit="return false">
+          <p id="demo">{this.promptList[this.lc]}</p>
+           <form onSubmit={this.handleSubmit}>
              <label for="audGetInput" id= "audPrompt">...</label>
-             <input type="text" id="audGetInput" name="audGet" placeholder="First thing that comes to mind? 3rd?"></input>
+             <input type="text" onChange={this.handleChange}  name="line" placeholder="First thing that comes to mind? 3rd?"></input>
 
-             <input type="submit" value="Submit" onClick={addLine()}></input>
+             <input type="submit" value="Submit"></input>
            </form>
-           <p id="demo">{this.promptList[this.lc]}</p>
+           
           </div>
          </div>
         </div>
@@ -69,10 +86,10 @@ class LineHat extends Component {
 
   	handleClick () {
   		let config = {
-		  headers: {
-		    	"Content-Type": "application/x-www-form-urlencoded"
-		}
-}
+		    headers: {
+	    	  "Content-Type": "application/x-www-form-urlencoded"
+    		}
+      }
   		axios.get('http://ec2-54-237-240-235.compute-1.amazonaws.com:8080/api/lines', {}, config)
     		.then(response => this.setState({response: response }))
 

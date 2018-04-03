@@ -14,8 +14,8 @@ class LineHat extends Component {
 	    line: ''
 	  }
 		this.handleChange = event => {
-    this.setState({ line: event.target.value });
-  }
+      this.setState({ line: event.target.value });
+    }
 
   this.handleSubmit = event => {
     event.preventDefault();
@@ -31,10 +31,12 @@ class LineHat extends Component {
         console.log(res);
         console.log(res.message);
       })
-    }
-    this.handleClick = this.handleClick.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+
+      this.setState({ prompt: Math.floor(Math.random() * this.promptList.length) });
+  }
+  this.handleClick = this.handleClick.bind(this);
+  this.handleChange = this.handleChange.bind(this);
+  this.handleSubmit = this.handleSubmit.bind(this);
 
 
     //list of prompts for audience input
@@ -49,16 +51,12 @@ class LineHat extends Component {
       "In a complete sentence: Something one of the actors onstage reminds you of",
       "Just type anything!"];
 
-    //chooses a random number from 0-9 (redo with better random and array.length)
-      var d = new Date();
-      var n = d.getTime();
-      var s = n.toString();
-      this.lc = s.substr(s.length - 1);
-      console.log(this.lc);
-      
-
-
 	}
+
+  componentDidMount() {
+    this.setState({ prompt: Math.floor(Math.random() * this.promptList.length) });
+  }
+
   	render() {
     	return (
         <div className="App">
@@ -67,7 +65,7 @@ class LineHat extends Component {
           </header>
         <div class ="row">
           <div class ="linehat">
-          <p id="demo">{this.promptList[this.lc]}</p>
+          <p id="demo">{this.promptList[this.state.prompt]}</p>
            <form onSubmit={this.handleSubmit}>
              <label for="audGetInput" id= "audPrompt">...</label>
              <input type="text" onChange={this.handleChange}  name="line" placeholder="First thing that comes to mind? 3rd?"></input>

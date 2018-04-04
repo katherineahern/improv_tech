@@ -14,6 +14,8 @@ class App extends Component {
         <p><a href="music">Single player musical accompaniment</a></p>
         <p><a href="LineHat">Post line</a></p>
         <p><a href="GetLine">Get line</a></p>
+        <p><a href="AudienceMusic">Audience Music Interface</a></p>
+        <p><a href="AdminMusic">Admin Music Interface</a></p>
       </div>
     );
   }

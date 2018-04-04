@@ -7,6 +7,8 @@ import LineHat from './LineHat';
 import GetLine from './GetLine';
 import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'; 
+import AudiencePlaySong from './AudiencePlaySong';
+import AdminMusic from './AdminMusic';
 
 
 ReactDOM.render(
@@ -16,7 +18,10 @@ ReactDOM.render(
 	        <Route path="/music" component={MusicalAccompaniment}/>
 	        <Route path="/lineHat" component={LineHat}/>
 	        <Route path="/getLine" component={GetLine}/>
+	        <Route path="/audienceMusic" component={AudiencePlaySong}/>
+	        <Route path="/adminMusic" component={AdminMusic}/>
 	        <Route path='*' exact={true} component={App} />
+
 	    </Switch>
     </Router>
       , document.getElementById('root'));

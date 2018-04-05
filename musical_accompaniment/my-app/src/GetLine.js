@@ -24,14 +24,19 @@ class GetLine extends Component {
 
   render() {
     return (
+			<div>
+			<div class ="header">
+			  <h1>Actor</h1>
+			</div>
       <div>
-        <h1>All lines</h1>
+        <h2>All lines</h2>
         <ul>
           {this.state.lines.map(line =>
             <li key={line.id}>{line.line}</li>
           )}
         </ul>
       </div>
+			</div>
     );
   }
 }

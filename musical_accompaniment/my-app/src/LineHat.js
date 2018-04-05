@@ -55,18 +55,20 @@ class LineHat extends Component {
       var s = n.toString();
       this.lc = s.substr(s.length - 1);
       console.log(this.lc);
-      
+
 
 
 	}
   	render() {
     	return (
         <div className="App">
-          <header className="hat-header">
+          <header className="header hat">
             <h1 className="App-title">Lines from a Hat!</h1>
+						<h4>Submit a line for the actors</h4>
           </header>
+				<div className="header-spacer"></div>
         <div class ="row">
-          <div class ="linehat">
+          <div class ="tile">
           <p id="demo">{this.promptList[this.lc]}</p>
            <form onSubmit={this.handleSubmit}>
              <label for="audGetInput" id= "audPrompt">...</label>
@@ -74,7 +76,7 @@ class LineHat extends Component {
 
              <input type="submit" value="Submit"></input>
            </form>
-           
+
           </div>
          </div>
         </div>

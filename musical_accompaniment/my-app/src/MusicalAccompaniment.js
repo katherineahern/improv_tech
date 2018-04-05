@@ -9,7 +9,7 @@ class MusicalAccompaniment extends Component {
     this.state = { palette: 'none' };
     // TODO: refactor so this isn't necessary
     this.handlePaletteChange = this.handlePaletteChange.bind(this);
-    
+
   }
 
   handlePaletteChange(changeEvent) {
@@ -20,6 +20,7 @@ class MusicalAccompaniment extends Component {
 
   render() {
     return (
+//      <div className="header"><h1>I need to put a header here, but it makes compile failure on next line</h1></div>
       <div className={ this.state.palette } >
         <div className="table">
           <div className="row">
@@ -47,7 +48,7 @@ class MusicalAccompaniment extends Component {
 
 class Emotion extends Component {
   constructor(props) {
-    super(props);    
+    super(props);
     this.playSong = this.playSong.bind(this);
   }
   playSong(feeling) {
@@ -57,12 +58,12 @@ class Emotion extends Component {
     audio.play();
   }
   render() {
-    return ( 
-      <div className="col" >      
+    return (
+      <div className="col" >
           <img src={ require('./images/' + this.props.emotionName.toLowerCase() + '.svg') } onClick={this.playSong}/><br/>
           <audio controls ref='audio' key={ this.props.emotionName + this.props.palette } > //key to rerender audio
             <Song emotion={this.props.emotionName.toLowerCase()} palette={ this.props.palette } />
-          </audio>    
+          </audio>
       </div>
     );
   }

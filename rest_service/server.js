@@ -110,3 +110,28 @@ app.use('/api', router);
 // =============================================================================
 app.listen(port);
 console.log('Magic happens on port ' + port);
+
+//websocket implementation part
+
+const WebSocket = require('ws');
+ 
+const wss = new WebSocket.Server({ port: 2222 });
+
+
+wss.on('connection', function connection(ws) {
+    
+
+  ws.on('message', function incoming(message) {
+    try {
+      msg = JSON.stringify(message);
+      ws.send(msg);
+    } catch (e) {
+        console.log(message);
+        ws.send(message);
+        console.log(e);
+    }
+    console.log('received: %s', message);
+  });
+  console.log(ws);
+  ws.send('new something');
+});

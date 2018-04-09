@@ -9,28 +9,49 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
-        <h1>Home!</h1>
-        <p><a href="music">Single player musical accompaniment</a></p>
-        <p><a href="LineHat">Post line</a></p>
-        <p><a href="GetLine">Get line</a></p>
-        <p><a href="AudienceMusic">Audience Music Interface</a></p>
-        <p><a href="AdminMusic">Admin Music Interface</a></p>
-      </div>
+  <div>
+    <div className="App-cover">
+
+       <h4>Improvisational Technology presents...</h4>
+       <h1>A fistful of apps!</h1>
+
+          <div class="col-6">
+             <div class="tile">
+              <h3>Sing!</h3>
+              <p><a href="music" class = "button" >Go!</a></p>
+             </div>
+          </div>
+          <div class="col-6">
+             <div class="tile">
+              <h3>Add a Line!</h3>
+              <p><a href="LineHat" class = "button" >Go!</a></p>
+             </div>
+          </div>
+          <div class="col-6">
+             <div class="tile">
+              <h3>What is my line?!</h3>
+              <p><a href="GetLine" class = "button" >Go!</a></p>
+             </div>
+          </div>
+          <div class="col-6">
+             <div class="tile">
+              <h3>Make them SING!</h3>
+              <p><a href="AudienceMusicmusic" class = "button" >Go!</a></p>
+             </div>
+          </div>
+          <div class="col-6">
+             <div class="tile">
+              <h3>Admin Music!</h3>
+              <p><a href="AdminMusic" class = "button" >Go!</a></p>
+             </div>
+         </div>
+       </div>
+    </div>
+
     );
   }
-  
+
 }
-
-class Home extends Component {
-  render() {
-    return (
-      <h1>Home!</h1>
-    );
-  }
-}
-
-
 
 
 export default App;

@@ -117,10 +117,8 @@ const WebSocket = require('ws');
  
 const wss = new WebSocket.Server({ port: 2222 });
 
-
 wss.on('connection', function connection(ws) {
     
-
   ws.on('message', function incoming(message) {
     try {
       msg = JSON.stringify(message);
@@ -131,7 +129,9 @@ wss.on('connection', function connection(ws) {
         console.log(e);
     }
     console.log('received: %s', message);
+    //ws.send(message);
+    ws.send("message from incoming" + message);
   });
-  console.log(ws);
-  ws.send('new something');
+  console.log('got connection');
+  
 });

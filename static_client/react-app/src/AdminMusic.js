@@ -15,12 +15,17 @@ class AdminMusic extends Component {
   }
   componentDidMount() {
       Socket = new WebSocket('ws://localhost:2222/' );
-      
+      Socket.onmessage = function (evt) 
+       { 
+          alert("Message is received..." + evt.data);
+          console.log(evt.data);
+       };  
   }
  
   handleData(data) {
     let result = data;
-    this.setState({string: result});
+    
+    
   }
 
   handleSubmit() {

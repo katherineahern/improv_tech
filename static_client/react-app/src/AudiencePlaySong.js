@@ -2,14 +2,26 @@ import React, { Component } from 'react';
 import './App.css';
 import Song from './Song';
 
+var Socket;
 class AudiencePlaySong extends Component {
   constructor(props) {
 
     super(props);
-    this.state = { palette: 'none' };
+    this.state = { palette: 'none', emotion: 'happy' };
     // TODO: refactor so this isn't necessary
     this.handlePaletteChange = this.handlePaletteChange.bind(this);
+    this.sendPaletteAndEmotion = this.sendPaletteAndEmotion.bind(this);
     
+    
+  }
+  componentDidMount() {
+      Socket = new WebSocket('ws://localhost:2222/' );
+  }
+
+  sendPaletteAndEmotion(emotion) {
+    this.state.emotion = emotion;
+    let stateString = JSON.stringify(this.state);
+    Socket.send(stateString);
   }
 
   handlePaletteChange(changeEvent) {
@@ -18,7 +30,7 @@ class AudiencePlaySong extends Component {
     });
   }
   //TODO: rewrite to send command over websockets
-  tempRender() {
+  render() {
     return (
       <div className={ this.state.palette } >
         <div className="table">
@@ -31,47 +43,23 @@ class AudiencePlaySong extends Component {
                 <input type="radio" value='latin' checked={ this.state.palette === 'latin' } onChange={this.handlePaletteChange}/> Latin
               </form>
           </div>
-          <div className="row">
-            <Emotion emotionName="Happy" palette={ this.state.palette } />
-            <Emotion emotionName="Sad" palette={ this.state.palette } />
-          </div>
-          <div className="row">
-            <Emotion emotionName="Angry" palette={ this.state.palette } />
-            <Emotion emotionName="Fearful" palette={ this.state.palette } />
-          </div>
+
+            <div className="row">
+              <img src={ require('./images/happy.svg') } onClick={() => this.sendPaletteAndEmotion('happy')}/><br/>
+              <img src={ require('./images/sad.svg') } onClick={() => this.sendPaletteAndEmotion('sad')}/><br/>
+            </div>
+            <div className="row">
+              <img src={ require('./images/angry.svg') } onClick={() => this.sendPaletteAndEmotion('angry')}/><br/>
+              <img src={ require('./images/fearful.svg') } onClick={() => this.sendPaletteAndEmotion('fearful')}/><br/>
+            </div>
         </div>
       </div>
     );
   }
 
-  render() {
-    return (
-      <h1>Audience play song</h1>
-    );
-  }
+  
 }
 
-class Emotion extends Component {
-  constructor(props) {
-    super(props);    
-    this.playSong = this.playSong.bind(this);
-  }
-  playSong(feeling) {
-    var audio = this.refs['audio'];
-    audio.load();
-    audio.currentTime = 0;
-    audio.play();
-  }
-  render() {
-    return ( 
-      <div className="col" >      
-          <img src={ require('./images/' + this.props.emotionName.toLowerCase() + '.svg') } onClick={this.playSong}/><br/>
-          <audio controls ref='audio' key={ this.props.emotionName + this.props.palette } > //key to rerender audio
-            <Song emotion={this.props.emotionName.toLowerCase()} palette={ this.props.palette } />
-          </audio>    
-      </div>
-    );
-  }
-}
+
 
 export default AudiencePlaySong;

@@ -36,7 +36,7 @@ class App extends Component {
           <div class="col-6">
              <div class="tile">
               <h3>Make them SING!</h3>
-              <p><a href="AudienceMusicmusic" class = "button" >Go!</a></p>
+              <p><a href="AudienceMusic" class = "button" >Go!</a></p>
              </div>
           </div>
           <div class="col-6">

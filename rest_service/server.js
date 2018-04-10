@@ -116,18 +116,25 @@ console.log('Magic happens on port ' + port);
 const WebSocket = require('ws');
  
 const wss = new WebSocket.Server({ port: 2222 });
+const audienceWebsocket = new WebSocket.Server({ port: 4444 });
 
 wss.on('connection', function connection(ws) {
     
   ws.on('message', function incoming(message) {
+    console.log(message);
     try {
-      msg = JSON.stringify(message);
-      ws.send(msg);
+        msg = JSON.stringify(message);
+        
     } catch (e) {
         console.log(message);
         ws.send(message);
+
         console.log(e);
     }
+    wss.clients.forEach(function each(client) {
+        var messageString = message.toString();
+        client.send(messageString);
+    });
     console.log('received: %s', message);
     //ws.send(message);
     ws.send("message from incoming" + message);

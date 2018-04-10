@@ -7,7 +7,7 @@ class AudiencePlaySong extends Component {
   constructor(props) {
 
     super(props);
-    this.state = { palette: 'none' };
+    this.state = { palette: 'none', emotion: 'happy' };
     // TODO: refactor so this isn't necessary
     this.handlePaletteChange = this.handlePaletteChange.bind(this);
     this.sendPaletteAndEmotion = this.sendPaletteAndEmotion.bind(this);
@@ -18,7 +18,8 @@ class AudiencePlaySong extends Component {
       Socket = new WebSocket('ws://localhost:2222/' );
   }
 
-  sendPaletteAndEmotion() {
+  sendPaletteAndEmotion(emotion) {
+    this.state.emotion = emotion;
     let stateString = JSON.stringify(this.state);
     Socket.send(stateString);
   }
@@ -44,12 +45,12 @@ class AudiencePlaySong extends Component {
           </div>
 
             <div className="row">
-              <img src={ require('./images/happy.svg') } onClick={this.sendPaletteAndEmotion}/><br/>
-              <img src={ require('./images/sad.svg') } onClick={this.sendPaletteAndEmotion}/><br/>
+              <img src={ require('./images/happy.svg') } onClick={() => this.sendPaletteAndEmotion('happy')}/><br/>
+              <img src={ require('./images/sad.svg') } onClick={() => this.sendPaletteAndEmotion('sad')}/><br/>
             </div>
             <div className="row">
-              <img src={ require('./images/angry.svg') } onClick={this.sendPaletteAndEmotion}/><br/>
-              <img src={ require('./images/fearful.svg') } onClick={this.sendPaletteAndEmotion}/><br/>
+              <img src={ require('./images/angry.svg') } onClick={() => this.sendPaletteAndEmotion('angry')}/><br/>
+              <img src={ require('./images/fearful.svg') } onClick={() => this.sendPaletteAndEmotion('fearful')}/><br/>
             </div>
         </div>
       </div>

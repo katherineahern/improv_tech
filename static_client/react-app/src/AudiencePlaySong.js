@@ -19,7 +19,8 @@ class AudiencePlaySong extends Component {
   }
 
   sendPaletteAndEmotion() {
-      Socket.send(this.state);
+    let stateString = JSON.stringify(this.state);
+    Socket.send(stateString);
   }
 
   handlePaletteChange(changeEvent) {

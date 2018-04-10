@@ -17,9 +17,8 @@ class AdminMusic extends Component {
       Socket = new WebSocket('ws://localhost:2222/' );
       Socket.onmessage = function (evt) 
        { 
-          var received_msg = JSON.stringify(evt.data);
-          alert("Message is received..." + received_msg);
-          //this.setState({ string: received_msg });
+          alert("Message is received..." + evt.data);
+          console.log(evt.data);
        };  
   }
  

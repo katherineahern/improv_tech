@@ -121,6 +121,7 @@ const audienceWebsocket = new WebSocket.Server({ port: 4444 });
 wss.on('connection', function connection(ws) {
     
   ws.on('message', function incoming(message) {
+    console.log(message);
     try {
         msg = JSON.stringify(message);
         
@@ -131,7 +132,8 @@ wss.on('connection', function connection(ws) {
         console.log(e);
     }
     wss.clients.forEach(function each(client) {
-        client.send(message + " broadcast");
+        var messageString = message.toString();
+        client.send(messageString);
     });
     console.log('received: %s', message);
     //ws.send(message);

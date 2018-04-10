@@ -23,6 +23,9 @@ header h1, header h4 {
   color: white;
   line-height: 11px;
 }
+#hat::after {
+    content: " 🎩";
+}
 
 .row{
   display: flex;
@@ -33,9 +36,12 @@ header h1, header h4 {
     background-color: #fff;
     box-shadow: grey 0px 1px 5px;
     padding: 20px;
-    max-width: 700px;
+  /*  max-width: 700px;*/
     margin: 1%;
     margin-top: 20px;
+}
+.row.tile {
+  max-width: 700px;
 }
 
   input[type=text], select {
@@ -60,4 +66,8 @@ input[type=submit] {
 
 input[type=submit]:hover {
     background-color: #000;
+}
+
+#pen::after {
+    content: " ✍️";
 }

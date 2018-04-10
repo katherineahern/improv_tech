@@ -41,7 +41,7 @@ class LineHat extends Component {
 
     //list of prompts for audience input
     this.promptList = ["A line from a movie",
-      "What did someone in your family always used to say",
+      "What someone in your family always used to say",
       "Something personal about you",
       "What you say when people surprise you",
       "An old saying that no one uses anymore",
@@ -60,19 +60,20 @@ class LineHat extends Component {
   	render() {
     	return (
         <div className="App">
+				  <div className="header-spacer"></div>
           <header className="hat-header">
-            <h1 className="App-title">Lines from a Hat!</h1>
+            <h1 className="App-title" id="hat">Lines from a Hat!</h1>
           </header>
         <div class ="row">
-          <div class ="linehat">
+          <div class ="tile">
           <p id="demo">{this.promptList[this.state.prompt]}</p>
            <form onSubmit={this.handleSubmit}>
              <label for="audGetInput" id= "audPrompt">...</label>
              <input type="text" onChange={this.handleChange}  name="line" placeholder="First thing that comes to mind? 3rd?"></input>
 
-             <input type="submit" value="Submit"></input>
+             <input type="submit" value="Submit" id="pen"></input>
            </form>
-           
+
           </div>
          </div>
         </div>

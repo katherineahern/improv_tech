@@ -15,34 +15,34 @@ class App extends Component {
        <h4>Improvisational Technology presents...</h4>
        <h1>A fistful of apps!</h1>
 
-          <div class="col-6">
-             <div class="tile">
-              <h3>Sing!</h3>
-              <p><a href="music" class = "button" >Go!</a></p>
-             </div>
+       <div class="col-6">
+          <div class="tile">
+           <h3>Songmaster!</h3>
+           <p><a href="AudienceMusic" class = "button bluebg" >🎶</a></p>
           </div>
+       </div>
           <div class="col-6">
              <div class="tile">
               <h3>Add a Line!</h3>
-              <p><a href="LineHat" class = "button" >Go!</a></p>
+              <p><a href="LineHat" class = "button bluebg" >🖋️</a></p>
              </div>
           </div>
           <div class="col-6">
              <div class="tile">
               <h3>What is my line?!</h3>
-              <p><a href="GetLine" class = "button" >Go!</a></p>
+              <p><a href="GetLine" class = "button blur" >⁉️</a></p>
              </div>
           </div>
           <div class="col-6">
              <div class="tile">
-              <h3>Make them SING!</h3>
-              <p><a href="AudienceMusic" class = "button" >Go!</a></p>
+              <h3>Improvise a Song!</h3>
+              <p><a href="music" class = "button" >▶️</a></p>
              </div>
           </div>
           <div class="col-6">
              <div class="tile">
               <h3>Admin Music!</h3>
-              <p><a href="AdminMusic" class = "button" >Go!</a></p>
+              <p><a href="AdminMusic" class = "button blur" >⚙️</a></p>
              </div>
          </div>
        </div>

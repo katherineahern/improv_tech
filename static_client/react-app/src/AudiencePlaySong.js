@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import './index.css';
 import Song from './Song';
 
 var Socket;
@@ -11,8 +12,8 @@ class AudiencePlaySong extends Component {
     // TODO: refactor so this isn't necessary
     this.handlePaletteChange = this.handlePaletteChange.bind(this);
     this.sendPaletteAndEmotion = this.sendPaletteAndEmotion.bind(this);
-    
-    
+
+
   }
   componentDidMount() {
       Socket = new WebSocket('ws://localhost:2222/' );
@@ -33,6 +34,10 @@ class AudiencePlaySong extends Component {
   render() {
     return (
       <div className={ this.state.palette } >
+       <div className="header-spacer"></div>
+        <header className="music-header">
+         <h1 className="App-title">♫ Improvised Musical! ♫</h1>
+        </header>
         <div className="table">
           <div className="row">
               {this.state.palette.toUpperCase()}
@@ -45,19 +50,19 @@ class AudiencePlaySong extends Component {
           </div>
 
             <div className="row">
-              <img src={ require('./images/happy.svg') } onClick={() => this.sendPaletteAndEmotion('happy')}/><br/>
-              <img src={ require('./images/sad.svg') } onClick={() => this.sendPaletteAndEmotion('sad')}/><br/>
+                <img src={ require('./images/happy.svg') } onClick={() => this.sendPaletteAndEmotion('happy')}/>
+                <img src={ require('./images/sad.svg') } onClick={() => this.sendPaletteAndEmotion('sad')}/>
             </div>
             <div className="row">
-              <img src={ require('./images/angry.svg') } onClick={() => this.sendPaletteAndEmotion('angry')}/><br/>
-              <img src={ require('./images/fearful.svg') } onClick={() => this.sendPaletteAndEmotion('fearful')}/><br/>
+                <img src={ require('./images/angry.svg') } onClick={() => this.sendPaletteAndEmotion('angry')}/>
+                <img src={ require('./images/fearful.svg') } onClick={() => this.sendPaletteAndEmotion('fearful')}/>
             </div>
         </div>
       </div>
     );
   }
 
-  
+
 }
 
 

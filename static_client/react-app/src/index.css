@@ -1,8 +1,7 @@
 /*
-color scheme ideas (supercedes current scheme):
-    HIGHLIGHTS -- blue: #006699, pink: #FF0066, green: #FF0066, orange: #FF6633, yellow: #FF9933
-    (build subtles from here)
-
+ATTN: KATE
+This file should be called musicalAccompaniment.css or have its contents in App.js
+Which do you prefer?
 */
 
 body {
@@ -15,6 +14,10 @@ body {
 }
 .none {
   background-color: var(--none);
+}
+
+#musicnotes::after {
+    content: " 🎵";
 }
 
 .jazz {
@@ -38,7 +41,15 @@ body {
     width: 100%;
     top: 40px; /* Header Height */
     bottom: 20px; /* Footer Height */
+    background: rgba(255, 255, 255, 0.3);
+      box-shadow: 0px 0px 12px #555;
 }
+@media only screen and (min-width:600px) {
+  .table {
+    width: 75%;
+  }
+}
+
 .row {
   text-align:center;
 	display:flex;
@@ -64,6 +75,13 @@ body {
   margin: 1%;
 	line-height: 100%;
 
+}
+
+.table img {
+  background: #fff;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 0px 0px 12px #555;
 }
 
 .col audio {

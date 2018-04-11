@@ -8,12 +8,12 @@ var Socket;
 class AdminMusic extends Component {
   
   constructor(props) {
-      super(props);  
-      this.state = {
-        palette: "none",
-        emotion: "happy"
-      };
-    
+    super(props);  
+    this.state = {
+      palette: "none",
+      emotion: "happy"
+    };
+    this.playSong = this.playSong.bind(this);
   }
 
   componentDidMount() {
@@ -25,7 +25,15 @@ class AdminMusic extends Component {
         emotion: getMessage.emotion
       });
       console.log(getMessage.emotion);
+      this.playSong();
     }.bind(this); // you need to bind here
+  }
+
+  playSong() {
+    var audio = this.refs['audio'];
+    audio.load();
+    audio.currentTime = 0;
+    audio.play();
   }
 
   render() {
@@ -34,13 +42,13 @@ class AdminMusic extends Component {
       <div>
         Emotion: <strong>{this.state.emotion}</strong><br/>
         Palette: <strong>{this.state.palette}</strong>
-
-          <ReactWebsocket url='ws://localhost:2222/'
-            onMessage={this.handleData.bind(this)}/>
-
-        <form onSubmit={this.handleSubmit}>
-           <input type="submit" value="Submit"></input>
-         </form>   
+          
+        <div className="col" >
+          <img src={ require('./images/' + this.state.emotion.toLowerCase() + '.svg') } onClick={this.playSong}/><br/>
+          <audio controls ref='audio' key={ this.state.emotion + this.props.palette } > //key to rerender audio
+            <Song emotion={this.state.emotion.toLowerCase()} palette={ this.state.palette } />
+          </audio>
+        </div>  
       </div>
 
     );

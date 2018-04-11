@@ -1,56 +1,47 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ReactWebsocket from 'react-websocket';
+import Song from './Song';
  
 
 var Socket;
 class AdminMusic extends Component {
-	constructor(props) {
-      super(props);
+  
+  constructor(props) {
+      super(props);  
       this.state = {
-        string: ""
+        palette: "none",
+        emotion: "happy"
       };
-
-      
+    
   }
+
   componentDidMount() {
-      Socket = new WebSocket('ws://localhost:2222/' );
-      Socket.onmessage = function (evt) 
-       { 
-          alert("Message is received..." + evt.data);
-          console.log(evt.data);
-       };  
-  }
- 
-  handleData(data) {
-    let result = data;
-    
-    
-  }
-
-  handleSubmit() {
-    Socket.send("Got it from Socket");
-    Socket.onmessage = function (evt) 
-     { 
-        var received_msg = evt.data;
-        alert("Message is received..." + evt.data);
-     };
+    Socket = new WebSocket('ws://localhost:2222/' );
+    Socket.onmessage = function(e) {
+      var getMessage = JSON.parse(e.data);
+      this.setState({
+        palette: getMessage.palette,
+        emotion: getMessage.emotion
+      });
+      console.log(getMessage.emotion);
+    }.bind(this); // you need to bind here
   }
 
   render() {
     
     return (
       <div>
-        String: <strong>{this.state.string}</strong>
+        Emotion: <strong>{this.state.emotion}</strong><br/>
+        Palette: <strong>{this.state.palette}</strong>
 
-        	<ReactWebsocket url='ws://localhost:2222/'
+          <ReactWebsocket url='ws://localhost:2222/'
             onMessage={this.handleData.bind(this)}/>
 
         <form onSubmit={this.handleSubmit}>
            <input type="submit" value="Submit"></input>
          </form>   
       </div>
-
 
     );
   }

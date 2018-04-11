@@ -9,6 +9,9 @@ import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'; 
 import AudiencePlaySong from './AudiencePlaySong';
 import AdminMusic from './AdminMusic';
+import SoloNewChoice from './SoloNewChoice';
+import AudienceNewChoice from './AudienceNewChoice';
+import AdminNewChoice from './AdminNewChoice';
 
 
 ReactDOM.render(
@@ -20,6 +23,9 @@ ReactDOM.render(
 	        <Route path="/getLine" component={GetLine}/>
 	        <Route path="/audienceMusic" component={AudiencePlaySong}/>
 	        <Route path="/adminMusic" component={AdminMusic}/>
+	        <Route path="/soloNewChoice" component={SoloNewChoice}/>
+	        <Route path="/audienceNewChoice" component={AudienceNewChoice}/>
+	        <Route path="/adminNewChoice" component={AdminNewChoice}/>
 	        <Route path='*' exact={true} component={App} />
 
 	    </Switch>

@@ -1,11 +1,15 @@
 :root {
-    --none:#dfdfdf;
-    --lounge1:#99ccff;
-    --funk1:#c2c2a3;
-    --latin1:#ffcc99;
+    --none:#efeff4;
+    --lounge1:#24956D /*OLD 99ccff*/;
+    --funk1:#DEAF35 /*OLD c2c2a3*/;
+    --latin1:#DE6C35 /*OLD ffcc99*/;
     --headleft:#344099;
     --headright:#227099;
     --skyblue:#33ccff;
+
+}
+body {
+  align-content: center;
 }
 
 .App {
@@ -17,11 +21,30 @@
   height: 80px;
 }
 
-.App-header {
+/*.App-header {
   background: linear-gradient(to right, var(--headleft), var(--headright));
   height: 150px;
   padding: 20px;
   color: white;
+}
+*/
+header {
+  position:fixed;
+  top:0px;
+  min-height: 50px;
+  background: linear-gradient(to right, var(--headleft), var(--headright));
+  width:100%;
+  z-index: 99;
+  padding: 12px 0px 12px 0px;
+  box-shadow: 0px 6px 22px -8px rgba(0,0,0,0.75);
+}
+.header-spacer{
+  height: 88px;
+}
+
+header h1, header h4 {
+  color: white;
+  line-height: 11px;
 }
 
 .App-cover  {
@@ -49,7 +72,7 @@ body {
 .col-3, .col-6, .col-9, .col-12 {
    float: left;
     padding: 15px;
-  //border: 1px solid red;
+  /*border: 1px solid red;*/
     box-sizing: border-box;
 }
 .col-3 {width: 25%;}

@@ -1,5 +1,9 @@
+//This file is deprecated. Do not update!
+//(I accidentally worked on this and couldn't figure out what I was doing wrong!)
+
 import React, { Component } from 'react';
 import './App.css';
+import './index.css';
 import Song from './Song';
 
 class MusicalAccompaniment extends Component {
@@ -9,7 +13,7 @@ class MusicalAccompaniment extends Component {
     this.state = { palette: 'none' };
     // TODO: refactor so this isn't necessary
     this.handlePaletteChange = this.handlePaletteChange.bind(this);
-    
+
   }
 
   handlePaletteChange(changeEvent) {
@@ -32,12 +36,20 @@ class MusicalAccompaniment extends Component {
               </form>
           </div>
           <div className="row">
-            <Emotion emotionName="Happy" palette={ this.state.palette } />
-            <Emotion emotionName="Sad" palette={ this.state.palette } />
+             <div className="tile">
+                  <Emotion emotionName="Happy" palette={ this.state.palette } />
+             </div>
+             <div className="tile">
+                  <Emotion emotionName="Sad" palette={ this.state.palette } />
+             </div>
           </div>
           <div className="row">
-            <Emotion emotionName="Angry" palette={ this.state.palette } />
-            <Emotion emotionName="Fearful" palette={ this.state.palette } />
+            <div className="tile">
+              <Emotion emotionName="Angry" palette={ this.state.palette } />
+            </div>
+            <div className="tile">
+              <Emotion emotionName="Fearful" palette={ this.state.palette } />
+            </div>
           </div>
         </div>
       </div>
@@ -47,7 +59,7 @@ class MusicalAccompaniment extends Component {
 
 class Emotion extends Component {
   constructor(props) {
-    super(props);    
+    super(props);
     this.playSong = this.playSong.bind(this);
   }
   playSong(feeling) {
@@ -57,12 +69,12 @@ class Emotion extends Component {
     audio.play();
   }
   render() {
-    return ( 
-      <div className="col" >      
+    return (
+      <div className="col" >
           <img src={ require('./images/' + this.props.emotionName.toLowerCase() + '.svg') } onClick={this.playSong}/><br/>
           <audio controls ref='audio' key={ this.props.emotionName + this.props.palette } > //key to rerender audio
             <Song emotion={this.props.emotionName.toLowerCase()} palette={ this.props.palette } />
-          </audio>    
+          </audio>
       </div>
     );
   }

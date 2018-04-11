@@ -93,12 +93,9 @@ router.route('/lines')
 router.route('/currentLine')
 
     .get(function(req, res) {
-        
-        
         console.log(currentLine);
         currentLine++;
         res.json({ currentLine: currentLine });
-        
     });
 
 
@@ -116,7 +113,6 @@ console.log('Magic happens on port ' + port);
 const WebSocket = require('ws');
  
 const wss = new WebSocket.Server({ port: 2222 });
-const audienceWebsocket = new WebSocket.Server({ port: 4444 });
 
 wss.on('connection', function connection(ws) {
     
@@ -141,4 +137,20 @@ wss.on('connection', function connection(ws) {
   });
   console.log('got connection');
   
+});
+
+const newChoiceWebsocket = new WebSocket.Server({ port: 4444 });
+
+newChoiceWebsocket.on('connection', function connection(ws) {
+    console.log("New choice connection");
+    ws.on('message', function incoming(message) {
+        console.log(message);
+        newChoiceWebsocket.clients.forEach(function each(client) {
+            var messageString = message.toString();
+            client.send(messageString);
+        });
+    });
+    //get new choice message
+
+    //send new choice message
 });

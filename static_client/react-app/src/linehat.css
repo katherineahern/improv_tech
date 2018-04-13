@@ -14,17 +14,6 @@ body {
   align-items: center;
   justify-content: center;
 }
-.tile {
-    background-color: #fff;
-    box-shadow: grey 0px 1px 5px;
-    padding: 20px;
-  /*  max-width: 700px;*/
-    margin: 1%;
-    margin-top: 20px;
-}
-.row.tile {
-  max-width: 700px;
-}
 
   input[type=text], select {
     width: 100%;

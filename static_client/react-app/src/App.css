@@ -80,22 +80,41 @@ body {
 .col-9 {width: 75%;}
 .col-12 {width: 100%;}
 
-.button {
+.tile {
+    background-color: #fff;
+    box-shadow: grey 0px 1px 5px;
+    padding: 7px;
+  /*  max-width: 700px;*/
+    margin: 1%;
+    margin-top: 0px;
+}
+.row.tile {
+  max-width: 700px;
+}
+
+.button, button {
   color: #fff;
   background: var(--headleft);
   text-decoration: none;
   padding: 12px 40px 12px 40px;
   border-shadow: #000 0px 2px 4px inset;
   width: 100%;
+  max-width: 350px;
   margin:inherit;
 }
-.button:hover {
+.button:hover, button:hover {
   opacity: 0.8;
 }
 
 .bluebg {
   background-color: var(--skyblue);
 }
+
+.whitebg {
+  background-color: white;
+  border: 1px solid #444;
+}
+
 
 .blur {
   text-shadow:0px 0px 5px #ffffff;

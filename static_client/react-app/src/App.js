@@ -21,16 +21,16 @@ class App extends Component {
            <p><a href="AudienceMusic" class = "button bluebg" >🎶</a></p>
           </div>
        </div>
-          <div class="col-6">
+       <div class="col-6">
+            <div class="tile">
+             <h3>What is my line?!</h3>
+             <p><a href="GetLine" class = "button blur" >⁉️</a></p>
+            </div>
+        </div>
+        <div class="col-6">
              <div class="tile">
               <h3>Add a Line!</h3>
               <p><a href="LineHat" class = "button bluebg" >🖋️</a></p>
-             </div>
-          </div>
-          <div class="col-6">
-             <div class="tile">
-              <h3>What is my line?!</h3>
-              <p><a href="GetLine" class = "button blur" >⁉️</a></p>
              </div>
           </div>
           <div class="col-6">
@@ -41,26 +41,26 @@ class App extends Component {
           </div>
           <div class="col-6">
              <div class="tile">
-              <h3>Admin Music!</h3>
-              <p><a href="AdminMusic" class = "button blur" >⚙️</a></p>
+              <h3>Audience New Choice</h3>
+              <p><a href="audienceNewChoice" class = "button bluebg" >📣</a></p>
              </div>
           </div>
           <div class="col-6">
              <div class="tile">
               <h3>Solo New Choice</h3>
-              <p><a href="soloNewChoice" class = "button" >▶️</a></p>
+              <p><a href="soloNewChoice" class = "button" >🤷</a></p>
              </div>
           </div>
           <div class="col-6">
              <div class="tile">
-              <h3>Audience New Choice</h3>
-              <p><a href="audienceNewChoice" class = "button" >▶️</a></p>
+              <h3>Admin Music!</h3>
+              <p><a href="AdminMusic" class = "button blur whitebg" >⚙️</a></p>
              </div>
           </div>
           <div class="col-6">
              <div class="tile">
               <h3>Admin New Choice</h3>
-              <p><a href="adminNewChoice" class = "button" >▶️</a></p>
+              <p><a href="adminNewChoice" class = "button whitebg" >🛎️</a></p>
              </div>
           </div>
        </div>

@@ -24,7 +24,7 @@ class LineHat extends Component {
       line: this.state.line
     };
 
-    axios.post('http://ec2-18-232-81-165.compute-1.amazonaws.com:8080/api/lines', line, {
+    axios.post('http://localhost:8080/api/lines', line, {
         'Content-Type': 'application/x-www-form-urlencoded'
       })
       .then(res => {
@@ -33,6 +33,8 @@ class LineHat extends Component {
       })
 
       this.setState({ prompt: Math.floor(Math.random() * this.promptList.length) });
+      this.refs.line.value = '';
+
   }
   this.handleClick = this.handleClick.bind(this);
   this.handleChange = this.handleChange.bind(this);
@@ -69,7 +71,7 @@ class LineHat extends Component {
           <p id="demo">{this.promptList[this.state.prompt]}</p>
            <form onSubmit={this.handleSubmit}>
              <label for="audGetInput" id= "audPrompt">...</label>
-             <input type="text" onChange={this.handleChange}  name="line" placeholder="First thing that comes to mind? 3rd?"></input>
+             <input type="text" onChange={this.handleChange}  name="line" ref="line" placeholder="First thing that comes to mind? 3rd?"></input>
 
              <input type="submit" value="Submit" id="pen"></input>
            </form>

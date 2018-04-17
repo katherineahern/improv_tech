@@ -12,6 +12,7 @@ import AdminMusic from './AdminMusic';
 import SoloNewChoice from './SoloNewChoice';
 import AudienceNewChoice from './AudienceNewChoice';
 import AdminNewChoice from './AdminNewChoice';
+import HatAdmin from './HatAdmin';
 
 
 ReactDOM.render(
@@ -26,6 +27,7 @@ ReactDOM.render(
 	        <Route path="/soloNewChoice" component={SoloNewChoice}/>
 	        <Route path="/audienceNewChoice" component={AudienceNewChoice}/>
 	        <Route path="/adminNewChoice" component={AdminNewChoice}/>
+	        <Route path="/hatAdmin" component={HatAdmin}/>
 	        <Route path='*' exact={true} component={App} />
 
 	    </Switch>

@@ -63,6 +63,12 @@ class App extends Component {
               <p><a href="adminNewChoice" class = "button whitebg" >🛎️</a></p>
              </div>
           </div>
+          <div class="col-6">
+             <div class="tile">
+              <h3>Admin Lines from a Hat</h3>
+              <p><a href="hatAdmin" class = "button whitebg" >🛎️</a></p>
+             </div>
+          </div>
        </div>
     </div>
 

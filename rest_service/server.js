@@ -90,12 +90,23 @@ router.route('/lines')
         });
     });
 
+
+
 router.route('/currentLine')
 
     .get(function(req, res) {
         console.log(currentLine);
         currentLine++;
         res.json({ currentLine: currentLine });
+    });
+
+router.route('/deleteLine')
+
+    .post(function(req, res) {
+        console.log("getting delete request");
+        console.log(req.body.timestamp);
+        var line = new LineHat();      // create a new instance of the LineHat model
+        LineHat.find({ timestamp: req.body.timestamp }).remove().exec();
     });
 
 

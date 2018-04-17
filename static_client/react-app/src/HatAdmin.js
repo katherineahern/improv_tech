@@ -12,6 +12,7 @@ class HatAdmin extends Component {
 	    };
 
 	    this.deleteLine = this.deleteLine.bind(this);
+	    this.resetCurrentLine = this.resetCurrentLine.bind(this);
 	}
 
 	componentDidMount() {
@@ -22,6 +23,15 @@ class HatAdmin extends Component {
 		      	console.log(res);
 		        const lines = res.data;
 		        this.setState({ lines });
+		      });
+	}
+
+	resetCurrentLine() {
+		axios.post('http://localhost:8080/api/resetCurrentLine', {
+        	headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+      		}).then(res => {
+		      	console.log("reset current line");
+		        
 		      });
 	}
 
@@ -44,19 +54,21 @@ class HatAdmin extends Component {
     	return (
         <div>
         	<h1>Lines from a Hat Admin</h1>
-        	<form onSubmit={this.handleSubmit}>
-	        	
-		          {this.state.lines.map(line =>
-		          	<div>
-		            	<a id={line.timestamp} key={line.timestamp} onClick={this.deleteLine} >
-			            	{line.timestamp}<br/>
-			            	{line.line}
-			            </a>
-		            </div>
-		          )}
-		        
-		        <input type="submit" value="Submit"></input>
-		    </form>
+
+        	<form onSubmit={this.resetCurrentLine}>
+	         <input type="submit" value="Reset Counter"></input>
+		    </form>	
+		    <div>
+	          {this.state.lines.map(line =>
+	          	<div>
+	            	<a id={line.timestamp} key={line.timestamp} onClick={this.deleteLine} >
+		            	{line.timestamp}<br/>
+		            	{line.line}
+		            </a>
+	            </div>
+	          )}
+		   	</div>     
+		       
         </div>
     	);
   	}

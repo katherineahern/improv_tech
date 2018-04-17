@@ -109,6 +109,13 @@ router.route('/deleteLine')
         LineHat.find({ timestamp: req.body.timestamp }).remove().exec();
     });
 
+router.route('/resetCurrentLine')
+
+    .post(function(req, res) {
+        console.log("getting reset counter request");
+        currentLine = 0;
+    });
+
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api

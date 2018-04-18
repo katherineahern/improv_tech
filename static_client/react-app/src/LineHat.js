@@ -24,7 +24,7 @@ class LineHat extends Component {
       line: this.state.line
     };
 
-    axios.post('http://localhost:8080/api/lines', line, {
+    axios.post('http://ec2-52-206-113-82.compute-1.amazonaws.com:8080/api/lines', line, {
         'Content-Type': 'application/x-www-form-urlencoded'
       })
       .then(res => {

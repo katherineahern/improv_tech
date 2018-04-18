@@ -16,7 +16,7 @@ class AudiencePlaySong extends Component {
 
   }
   componentDidMount() {
-      Socket = new WebSocket('ws://localhost:2222/' );
+      Socket = new WebSocket('ws://ec2-52-206-113-82.compute-1.amazonaws.com:2222/' );
   }
 
   sendPaletteAndEmotion(emotion) {

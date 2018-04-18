@@ -11,7 +11,7 @@ import os
 
 #url = raw_input("Enter a website to extract the URL's from: ")
 
-r  = requests.get("https://en.wikipedia.org/wiki/Adlai_Stevenson_II")
+r  = requests.get("https://en.wikipedia.org/wiki/Genghis_Khan")
 
 data = r.text
 

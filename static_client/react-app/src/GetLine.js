@@ -18,7 +18,7 @@ class GetLine extends Component {
 		      line: this.state.line
 		    };
 
-		    axios.get('http://localhost:8080/api/currentLine', {
+		    axios.get('http://ec2-52-206-113-82.compute-1.amazonaws.com:8080/api/currentLine', {
 	        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 		      })
 		      .then(res => {
@@ -32,7 +32,7 @@ class GetLine extends Component {
   	}
 
   	componentDidMount() {
-	    axios.get('http://localhost:8080/api/lines', {
+	    axios.get('http://ec2-52-206-113-82.compute-1.amazonaws.com:8080/api/lines', {
 	        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 	      })
 	      .then(res => {
@@ -41,14 +41,14 @@ class GetLine extends Component {
 	        this.setState({ lines });
 	      });
 
-     axios.get('http://localhost:8080/api/currentLine', {
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-      })
-      .then(res => {
-      	console.log("did something");
-      	console.log(res);
+     	axios.get('http://ec2-52-206-113-82.compute-1.amazonaws.com:8080/api/currentLine', {
+        	headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+      	})
+      	.then(res => {
+      		console.log("did something");
+      		console.log(res);
         
-      });
+      	});
   	}
 
 

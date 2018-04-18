@@ -11,13 +11,14 @@ class AdminMusic extends Component {
     super(props);  
     this.state = {
       palette: "none",
-      emotion: "happy"
+      emotion: "happy",
+      key: Math.random()
     };
     this.playSong = this.playSong.bind(this);
   }
 
   componentDidMount() {
-    Socket = new WebSocket('ws://localhost:2222/' );
+    Socket = new WebSocket('ws://ec2-52-206-113-82.compute-1.amazonaws.com:2222/' );
     Socket.onmessage = function(e) {
       var getMessage = JSON.parse(e.data);
       this.setState({
@@ -30,6 +31,7 @@ class AdminMusic extends Component {
   }
 
   playSong() {
+    this.setState({ key: Math.random() });
     var audio = this.refs['audio'];
     audio.load();
     audio.currentTime = 0;
@@ -46,7 +48,7 @@ class AdminMusic extends Component {
         <div className="col" >
           <img src={ require('./images/' + this.state.emotion.toLowerCase() + '.svg') } onClick={this.playSong}/><br/>
           <audio controls ref='audio' key={ this.state.emotion + this.props.palette } > //key to rerender audio
-            <Song emotion={this.state.emotion.toLowerCase()} palette={ this.state.palette } />
+            <Song key={this.state.key} emotion={this.state.emotion.toLowerCase()} palette={ this.state.palette } />
           </audio>
         </div>  
       </div>

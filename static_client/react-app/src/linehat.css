@@ -42,3 +42,11 @@ input[type=submit]:hover {
 #pen::after {
     content: " ✍️";
 }
+
+.getline {
+  color: #888;
+}
+#line4actor {
+    color: #000;
+    margin: 20px;
+}

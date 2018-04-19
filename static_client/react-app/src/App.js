@@ -13,21 +13,21 @@ class App extends Component {
     <div className="App-cover">
 
        <h4>Improvisational Technology presents...</h4>
-       <h1>A fistful of apps!</h1>
-
-       <div class="col-6">
+       <h2>A Fistful of Apps!</h2>
+       <div class="flex-container">
+        <div class="col-6">
           <div class="tile">
            <h3>Songmaster!</h3>
            <p><a href="AudienceMusic" class = "button bluebg" >🎶</a></p>
           </div>
-       </div>
-       <div class="col-6">
+        </div>
+        <div class="col-6">
             <div class="tile">
              <h3>What is my line?!</h3>
              <p><a href="GetLine" class = "button blur" >⁉️</a></p>
             </div>
-        </div>
-        <div class="col-6">
+         </div>
+         <div class="col-6">
              <div class="tile">
               <h3>Add a Line!</h3>
               <p><a href="LineHat" class = "button bluebg" >🖋️</a></p>
@@ -60,15 +60,16 @@ class App extends Component {
           <div class="col-6">
              <div class="tile">
               <h3>Admin New Choice</h3>
-              <p><a href="adminNewChoice" class = "button whitebg" >🛎️</a></p>
+              <p><a href="adminNewChoice" class = "button whitebg" >⚙️</a></p>
              </div>
           </div>
           <div class="col-6">
              <div class="tile">
-              <h3>Admin Lines from a Hat</h3>
-              <p><a href="hatAdmin" class = "button whitebg" >🛎️</a></p>
+              <h3>Admin Lines</h3>
+              <p><a href="hatAdmin" class = "button whitebg" >⚙️️</a></p>
              </div>
           </div>
+         </div>
        </div>
     </div>
 

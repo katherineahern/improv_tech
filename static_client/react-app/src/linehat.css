@@ -50,3 +50,7 @@ input[type=submit]:hover {
     color: #000;
     margin: 20px;
 }
+
+.getline input {
+    max-width: 300px;
+}

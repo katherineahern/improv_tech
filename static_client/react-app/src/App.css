@@ -53,7 +53,7 @@ header h1, header h4 {
   height: 100%;
   position: absolute; top: 0; left: 0;
 }
-.App-cover h1 {
+.App-cover h2 {
   color: white;
 }
 
@@ -69,9 +69,15 @@ body {
   width: 100%;
 }
 
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .col-3, .col-6, .col-9, .col-12 {
    float: left;
-    padding: 15px;
+    padding: 7px;
   /*border: 1px solid red;*/
     box-sizing: border-box;
 }
@@ -84,12 +90,15 @@ body {
     background-color: #fff;
     box-shadow: grey 0px 1px 5px;
     padding: 7px;
-  /*  max-width: 700px;*/
     margin: 1%;
     margin-top: 0px;
 }
 .row.tile {
   max-width: 700px;
+}
+
+input {
+  font-size: 18px;
 }
 
 .button, button {
@@ -101,6 +110,7 @@ body {
   width: 100%;
   max-width: 350px;
   margin:inherit;
+  font-size: 20px;
 }
 .button:hover, button:hover {
   opacity: 0.8;

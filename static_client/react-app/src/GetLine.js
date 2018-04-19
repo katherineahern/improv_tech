@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './linehat.css';
 
 class GetLine extends Component {
 
@@ -47,7 +48,7 @@ class GetLine extends Component {
       	.then(res => {
       		console.log("did something");
       		console.log(res);
-        
+
       	});
   	}
 
@@ -55,16 +56,22 @@ class GetLine extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Current Line: { this.state.currentLine }</h1>
-        <h2>{ this.state.lines[this.state.currentLine].line }</h2>
+			<div class="getline">
+			<div className="header-spacer"></div>
+			  <header className="hat-header">
+				  <h1 className="App-title" id="hat">Lines from a Hat! (Actor)</h1>
+			  </header>
+
+        <h2>Current Line: { this.state.currentLine }</h2>
+        <h1 id="line4actor">{ this.state.lines[this.state.currentLine].line }</h1>
+
         <form onSubmit={this.handleSubmit}>
 	        <ul>
 	          {this.state.lines.map(line =>
 	            <li key={line.id}>{line.line}</li>
 	          )}
 	        </ul>
-	         <input type="submit" value="Submit"></input>
+	         <input type="submit" value="NEXT LINE"></input>
 	    </form>
       </div>
     );

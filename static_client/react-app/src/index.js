@@ -13,7 +13,9 @@ import SoloNewChoice from './new_choice/SoloNewChoice';
 import AudienceNewChoice from './new_choice/AudienceNewChoice';
 import AdminNewChoice from './new_choice/AdminNewChoice';
 import HatAdmin from './line_hat/HatAdmin';
-
+import Admin from './Admin';
+import Solo from './Solo';
+import Actor from './Actor';
 
 ReactDOM.render(
 	<Router>
@@ -28,6 +30,9 @@ ReactDOM.render(
 	        <Route path="/audienceNewChoice" component={AudienceNewChoice}/>
 	        <Route path="/adminNewChoice" component={AdminNewChoice}/>
 	        <Route path="/hatAdmin" component={HatAdmin}/>
+	        <Route path="/admin" component={Admin}/>
+	        <Route path="/solo" component={Solo}/>
+	        <Route path="/actor" component={Actor}/>
 	        <Route path='*' exact={true} component={App} />
 
 	    </Switch>

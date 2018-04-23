@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './linehat.css';
+import '../css/linehat.css';
 
 class GetLine extends Component {
 

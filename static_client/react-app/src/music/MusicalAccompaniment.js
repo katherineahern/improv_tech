@@ -2,8 +2,8 @@
 //(I accidentally worked on this and couldn't figure out what I was doing wrong!)
 
 import React, { Component } from 'react';
-import './App.css';
-import './index.css';
+import '../css/App.css';
+import '../css/index.css';
 import Song from './Song';
 
 class MusicalAccompaniment extends Component {
@@ -71,7 +71,7 @@ class Emotion extends Component {
   render() {
     return (
       <div className="col" >
-          <img src={ require('./images/' + this.props.emotionName.toLowerCase() + '.svg') } onClick={this.playSong}/><br/>
+          <img src={ require('../images/' + this.props.emotionName.toLowerCase() + '.svg') } onClick={this.playSong}/><br/>
           <audio controls ref='audio' key={ this.props.emotionName + this.props.palette } > //key to rerender audio
             <Song emotion={this.props.emotionName.toLowerCase()} palette={ this.props.palette } />
           </audio>

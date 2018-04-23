@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
-import './index.css';
+import '../css/App.css';
+import '../css/index.css';
 import Song from './Song';
 
 var Socket;
@@ -50,12 +50,12 @@ class AudiencePlaySong extends Component {
           </div>
 
             <div className="row">
-                <img src={ require('./images/happy.svg') } onClick={() => this.sendPaletteAndEmotion('happy')}/>
-                <img src={ require('./images/sad.svg') } onClick={() => this.sendPaletteAndEmotion('sad')}/>
+                <img src={ require('../images/happy.svg') } onClick={() => this.sendPaletteAndEmotion('happy')}/>
+                <img src={ require('../images/sad.svg') } onClick={() => this.sendPaletteAndEmotion('sad')}/>
             </div>
             <div className="row">
-                <img src={ require('./images/angry.svg') } onClick={() => this.sendPaletteAndEmotion('angry')}/>
-                <img src={ require('./images/fearful.svg') } onClick={() => this.sendPaletteAndEmotion('fearful')}/>
+                <img src={ require('../images/angry.svg') } onClick={() => this.sendPaletteAndEmotion('angry')}/>
+                <img src={ require('../images/fearful.svg') } onClick={() => this.sendPaletteAndEmotion('fearful')}/>
             </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as Constants from '../Constants';
 
 var Socket;
 class AudienceNewChoice extends Component {
@@ -7,7 +8,7 @@ class AudienceNewChoice extends Component {
 		this.newChoice = this.newChoice.bind(this);
 	}
 	componentDidMount() {
-      	Socket = new WebSocket('ws://ec2-52-206-113-82.compute-1.amazonaws.com:4444/' );
+      	Socket = new WebSocket('ws://' + Constants.URL + ':4444/' );
   	}
   	newChoice() {
   		Socket.send("new choice");

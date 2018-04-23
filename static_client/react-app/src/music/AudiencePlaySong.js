@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../css/App.css';
 import '../css/index.css';
 import Song from './Song';
+import * as Constants from '../Constants';
 
 var Socket;
 class AudiencePlaySong extends Component {
@@ -16,7 +17,7 @@ class AudiencePlaySong extends Component {
 
   }
   componentDidMount() {
-      Socket = new WebSocket('ws://ec2-52-206-113-82.compute-1.amazonaws.com:2222/' );
+      Socket = new WebSocket('ws://' + Constants.URL + ':2222/' );
   }
 
   sendPaletteAndEmotion(emotion) {

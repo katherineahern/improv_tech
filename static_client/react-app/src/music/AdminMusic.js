@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ReactWebsocket from 'react-websocket';
 import Song from './Song';
- 
+import * as Constants from '../Constants';
 
 var Socket;
 class AdminMusic extends Component {
@@ -18,7 +18,7 @@ class AdminMusic extends Component {
   }
 
   componentDidMount() {
-    Socket = new WebSocket('ws://ec2-52-206-113-82.compute-1.amazonaws.com:2222/' );
+    Socket = new WebSocket('ws://' + Constants.URL + ':2222/' );
     Socket.onmessage = function(e) {
       var getMessage = JSON.parse(e.data);
       this.setState({

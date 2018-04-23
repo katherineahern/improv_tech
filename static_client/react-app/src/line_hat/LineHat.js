@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../css/linehat.css';
 import axios from 'axios';
-
+import * as Constants from '../Constants';
 
 var lineList = [];
 function addLine() {}; //defined here to prevent error
@@ -24,7 +24,7 @@ class LineHat extends Component {
       line: this.state.line
     };
 
-    axios.post('http://ec2-52-206-113-82.compute-1.amazonaws.com:8080/api/lines', line, {
+    axios.post('http://' + Constants.URL + ':8080/api/lines', line, {
         'Content-Type': 'application/x-www-form-urlencoded'
       })
       .then(res => {
@@ -88,7 +88,7 @@ class LineHat extends Component {
 	    	  "Content-Type": "application/x-www-form-urlencoded"
     		}
       }
-  		axios.get('http://ec2-54-237-240-235.compute-1.amazonaws.com:8080/api/lines', {}, config)
+  		axios.get('http://' + Constants.URL + ':8080/api/lines', {}, config)
     		.then(response => this.setState({response: response }))
 
 

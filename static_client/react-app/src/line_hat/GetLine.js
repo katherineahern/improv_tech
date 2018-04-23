@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import '../css/linehat.css';
+import * as Constants from '../Constants';
+
 
 class GetLine extends Component {
 
@@ -19,7 +21,7 @@ class GetLine extends Component {
 		      line: this.state.line
 		    };
 
-		    axios.get('http://ec2-52-206-113-82.compute-1.amazonaws.com:8080/api/currentLine', {
+		    axios.get('http://' + Constants.URL + ':8080/api/currentLine', {
 	        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 		      })
 		      .then(res => {
@@ -33,7 +35,7 @@ class GetLine extends Component {
   	}
 
   	componentDidMount() {
-	    axios.get('http://ec2-52-206-113-82.compute-1.amazonaws.com:8080/api/lines', {
+	    axios.get('http://' + Constants.URL +  ':8080/api/lines', {
 	        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 	      })
 	      .then(res => {
@@ -42,7 +44,7 @@ class GetLine extends Component {
 	        this.setState({ lines });
 	      });
 
-     	axios.get('http://ec2-52-206-113-82.compute-1.amazonaws.com:8080/api/currentLine', {
+     	axios.get('http://'  + Constants.URL + ':8080/api/currentLine', {
         	headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
       	})
       	.then(res => {

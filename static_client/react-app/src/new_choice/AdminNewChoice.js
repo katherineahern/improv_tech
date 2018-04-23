@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import new_choice from '../music/songs/newChoice.mp3';
+import * as Constants from '../Constants';
 
 var Socket;
 class AdminNewChoice extends Component {
@@ -8,7 +9,7 @@ class AdminNewChoice extends Component {
 		this.newChoice = this.newChoice.bind(this);
 	}
 	componentDidMount() {
-	    Socket = new WebSocket('ws://ec2-52-206-113-82.compute-1.amazonaws.com:4444/' );
+	    Socket = new WebSocket('ws://' + Constants.URL + ':4444/' );
 	    Socket.onmessage = function(e) {
 	      console.log("got new choice");
 	      console.log(e.data);

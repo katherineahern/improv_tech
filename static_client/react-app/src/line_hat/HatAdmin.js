@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import * as Constants from '../Constants';
 
 class HatAdmin extends Component {
 
@@ -16,7 +17,7 @@ class HatAdmin extends Component {
 	}
 
 	componentDidMount() {
-		axios.get('http://ec2-52-206-113-82.compute-1.amazonaws.com:8080/api/lines', {
+		axios.get('http://' + Constants.URL + ':8080/api/lines', {
 		        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 		      })
 		      .then(res => {

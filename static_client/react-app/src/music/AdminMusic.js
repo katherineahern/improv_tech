@@ -46,7 +46,7 @@ class AdminMusic extends Component {
         Palette: <strong>{this.state.palette}</strong>
           
         <div className="col" >
-          <img src={ require('./images/' + this.state.emotion.toLowerCase() + '.svg') } onClick={this.playSong}/><br/>
+          <img src={ require('../images/' + this.state.emotion.toLowerCase() + '.svg') } onClick={this.playSong}/><br/>
           <audio controls ref='audio' key={ this.state.emotion + this.props.palette } > //key to rerender audio
             <Song key={this.state.key} emotion={this.state.emotion.toLowerCase()} palette={ this.state.palette } />
           </audio>

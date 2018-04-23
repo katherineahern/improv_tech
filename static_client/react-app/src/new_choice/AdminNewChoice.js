@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import new_choice from './songs/newChoice.mp3';
+import new_choice from '../music/songs/newChoice.mp3';
 
 var Socket;
 class AdminNewChoice extends Component {

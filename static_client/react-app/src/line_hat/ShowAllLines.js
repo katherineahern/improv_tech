@@ -11,28 +11,35 @@ class ShowAllLines extends Component {
 	    	currentLine: 0,
 	      	lines: [{ line: "initial line" }]
 	    };
-	    
+
 	}
 
 	componentDidMount() {
-		axios.get('http://' + Constants.URL + ':8080/api/lines', {
-		        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-		      })
-		      .then(res => {
-		      	console.log(res);
-		        const lines = res.data;
-		        this.setState({ lines });
-		      });
+				axios.get('http://' + Constants.URL + ':8080/api/lines', {
+				        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+				      })
+				      .then(res => {
+		//		      	console.log(res);
+				        const lines = res.data;
+				        this.setState({ lines });
+				      });
 
-		//run polling here?
+		    	axios.get('http://' + Constants.URL + ':8080/api/showLine', {
+						    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+				      })
+				       .then(res => {
+					     console.log(res);
+					     const currentLineReply = res.data;
+					     this.setState({ currentLine : currentLineReply.currentLine });
+				     });
 	}
 
 	render() {
     	return (
         <div>
         	<h1>Lines</h1>
+         <p>{this.state.currentLine}</p>
 
-        	
 		    <div>
 	          {this.state.lines.map(line =>
 	          	<div>
@@ -41,8 +48,8 @@ class ShowAllLines extends Component {
 		            </a>
 	            </div>
 	          )}
-		   	</div>     
-		       
+		   	</div>
+
         </div>
     	);
   	}

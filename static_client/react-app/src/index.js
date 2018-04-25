@@ -5,6 +5,7 @@ import App from './App';
 import MusicalAccompaniment from './music/MusicalAccompaniment';
 import LineHat from './line_hat/LineHat';
 import GetLine from './line_hat/GetLine';
+import ShowAllLines from './line_hat/ShowAllLines';
 import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'; 
 import AudiencePlaySong from './music/AudiencePlaySong';
@@ -33,6 +34,7 @@ ReactDOM.render(
 	        <Route path="/admin" component={Admin}/>
 	        <Route path="/solo" component={Solo}/>
 	        <Route path="/actor" component={Actor}/>
+	        <Route path="/showAllLines" component={ShowAllLines}/>
 	        <Route path='*' exact={true} component={App} />
 
 	    </Switch>

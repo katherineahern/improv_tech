@@ -28,7 +28,7 @@ class HatAdmin extends Component {
 	}
 
 	resetCurrentLine() {
-		axios.post('http://ec2-52-206-113-82.compute-1.amazonaws.com:8080/api/resetCurrentLine', {}, {
+		axios.post('http://' + Constants.URL + ':8080/api/resetCurrentLine', {}, {
 		        'Content-Type': 'application/x-www-form-urlencoded'
 		      }).then(res => {
       			console.log(res);
@@ -41,7 +41,7 @@ class HatAdmin extends Component {
 		const {id} = event.target;
     	console.log({'timestamp': id });
 
-		axios.post('http://ec2-52-206-113-82.compute-1.amazonaws.com:8080/api/deleteLine', {'timestamp': id }, {
+		axios.post('http://' + Constants.URL + ':8080/api/deleteLine', {'timestamp': id }, {
 		        'Content-Type': 'application/x-www-form-urlencoded'
 		      })
 		      .then(res => {

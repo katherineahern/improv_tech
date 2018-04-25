@@ -33,6 +33,12 @@ class Admin extends Component {
               <p><a href="hatAdmin" class = "button whitebg" >⚙️️</a></p>
              </div>
           </div>
+          <div class="col-6">
+             <div class="tile">
+              <h3>Show all lines to audience</h3>
+              <p><a href="showAllLines" class = "button whitebg" >⚙️️</a></p>
+             </div>
+          </div>
           </div>
         </div>
     </div>

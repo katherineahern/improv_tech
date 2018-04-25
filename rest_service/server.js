@@ -25,7 +25,9 @@ app.use(bodyParser.json());
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    //localhost if local testing
+    res.setHeader('Access-Control-Allow-Origin', 'http://improvisationaltechnology.com:3000/*');
+    res.setHeader('Access-Control-Allow-Origin', '*');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -66,7 +68,7 @@ router.route('/lines')
 
     // create a line (accessed at POST http://localhost:8080/api/lines)
     .post(function(req, res) {
-    	console.log("New something: " + mongoose.connection.readyState);
+        console.log("New something: " + mongoose.connection.readyState);
         var line = new LineHat();      // create a new instance of the LineHat model
         line.line = req.body.line;  // set the line (comes from the request)
         var d = new Date();
@@ -97,6 +99,13 @@ router.route('/currentLine')
     .get(function(req, res) {
         console.log(currentLine);
         currentLine++;
+        res.json({ currentLine: currentLine });
+    });
+
+router.route('/showLine')
+
+    .get(function(req, res) {
+        console.log(currentLine);
         res.json({ currentLine: currentLine });
     });
 

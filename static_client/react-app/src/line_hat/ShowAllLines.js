@@ -11,31 +11,31 @@ class ShowAllLines extends Component {
 	    	currentLine: 0,
 	      	lines: [{ line: "initial line" }]
 	    };
-
+	    
 	}
 
 	componentDidMount() {
-
+		
+		var self = this;
 		(function pollServerForNewLine() {
-		  axios.get('http://' + Constants.URL +  ':8080/api/lines', {
+			
+		  	axios.get('http://' + Constants.URL +  ':8080/api/lines', {
 	        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-	      })
-	      .then(res => {
-		      alert(
-		        "I'm polling"
-		      );
+	      	})
+	      	.then(res => {
 		    
-		    setTimeout(pollServerForNewLine, 1000);
-		  });
+				const lines = res.data;
+		    	self.setState({ lines });
+		    	setTimeout(pollServerForNewLine, 1000);
+		  	});
 		}());
-				axios.get('http://' + Constants.URL + ':8080/api/lines', {
-				        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-				      })
-				      .then(res => {
-		//		      	console.log(res);
-				        const lines = res.data;
-				        this.setState({ lines });
-				      });
+		/*axios.get('http://' + Constants.URL + ':8080/api/lines', {
+		        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+		      })
+		      .then(res => {
+		        const lines = res.data;
+		        this.setState({ lines });
+		      });*/
 
 		    	axios.get('http://' + Constants.URL + ':8080/api/showLine', {
 						    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }

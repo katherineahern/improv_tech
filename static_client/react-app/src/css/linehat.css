@@ -54,3 +54,11 @@ input[type=submit]:hover {
 .getline input {
     max-width: 300px;
 }
+/*for showing audience all lines, with currentLine emphasized */
+
+.showCurrentLine {
+    font-size: 2.5em;
+}
+.showLine {
+     max-width: 300px;
+}

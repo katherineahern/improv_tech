@@ -47,16 +47,12 @@ class ShowAllLines extends Component {
     	return (
         <div>
         	<h1>Lines</h1>
-         <p>{this.state.currentLine}</p>
-
 		    <div>
-	          {this.state.lines.map(line =>
-	          	<div>
-	            	<a id={line.timestamp} key={line.timestamp} >
-		            	<b>{line.line}</b><br/>
-		            </a>
-	            </div>
-	          )}
+	          	{this.state.lines.map(line =>	          	
+		          	<div id="showCurrentLine" className={line === this.state.lines[this.state.currentLine] ? 'showCurrentLine':'showLine' }>	            	
+			            {line.line}
+		            </div>    
+		        )}
 		   	</div>
 
         </div>

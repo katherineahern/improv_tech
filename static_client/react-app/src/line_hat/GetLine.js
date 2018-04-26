@@ -60,25 +60,21 @@ class GetLine extends Component {
 
   render() {
     return (
-			<div class="getline">
-			<div className="header-spacer"></div>
-			  <header className="hat-header">
-				  <h1 className="App-title" id="hat">Lines from a Hat! (Actor)</h1>
-			  </header>
+		<div class="getline">
+		<div className="header-spacer"></div>
+		  <header className="hat-header">
+			  <h1 className="App-title" id="hat">Lines from a Hat! (Actor)</h1>
+		  </header>
 
-        
-        	{this.state.lines[this.state.currentLine] ? (
-	          <h1 id="line4actor">{this.state.lines[this.state.currentLine].line}</h1>
-	        ) : (
-	          <h3>No more lines</h3>
-	        )}
-
-
-        
+    
+    	{this.state.lines[this.state.currentLine] ? (
+          <h1 id="line4actor">{this.state.lines[this.state.currentLine].line}</h1>
+        ) : (
+          <h3>No more lines</h3>
+        )}
 
         <form onSubmit={this.handleSubmit}>
-	        
-	         <input type="submit" value="NEXT LINE"></input>
+	        <input type="submit" value="NEXT LINE"></input>
 	    </form>
       </div>
     );

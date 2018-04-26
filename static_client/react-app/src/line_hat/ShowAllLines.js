@@ -15,6 +15,19 @@ class ShowAllLines extends Component {
 	}
 
 	componentDidMount() {
+
+		(function pollServerForNewLine() {
+		  axios.get('http://' + Constants.URL +  ':8080/api/lines', {
+	        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+	      })
+	      .then(res => {
+		      alert(
+		        "I'm polling"
+		      );
+		    
+		    setTimeout(pollServerForNewLine, 1000);
+		  });
+		}());
 				axios.get('http://' + Constants.URL + ':8080/api/lines', {
 				        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 				      })

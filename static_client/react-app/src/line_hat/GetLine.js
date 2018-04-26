@@ -35,6 +35,8 @@ class GetLine extends Component {
   	}
 
   	componentDidMount() {
+
+  		
 	    axios.get('http://' + Constants.URL +  ':8080/api/lines', {
 	        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 	      })
@@ -64,15 +66,10 @@ class GetLine extends Component {
 				  <h1 className="App-title" id="hat">Lines from a Hat! (Actor)</h1>
 			  </header>
 
-        <h2>Current Line: { this.state.currentLine }</h2>
         <h1 id="line4actor">{ this.state.lines[this.state.currentLine].line }</h1>
 
         <form onSubmit={this.handleSubmit}>
-	        <ul>
-	          {this.state.lines.map(line =>
-	            <li key={line.id}>{line.line}</li>
-	          )}
-	        </ul>
+	        
 	         <input type="submit" value="NEXT LINE"></input>
 	    </form>
       </div>

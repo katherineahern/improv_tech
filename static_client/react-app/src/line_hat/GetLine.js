@@ -66,7 +66,15 @@ class GetLine extends Component {
 				  <h1 className="App-title" id="hat">Lines from a Hat! (Actor)</h1>
 			  </header>
 
-        <h1 id="line4actor">{ this.state.lines[this.state.currentLine].line }</h1>
+        
+        	{this.state.lines[this.state.currentLine] ? (
+	          <h1 id="line4actor">{this.state.lines[this.state.currentLine].line}</h1>
+	        ) : (
+	          <h3>No more lines</h3>
+	        )}
+
+
+        
 
         <form onSubmit={this.handleSubmit}>
 	        

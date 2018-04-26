@@ -29,22 +29,18 @@ class ShowAllLines extends Component {
 		    	setTimeout(pollServerForNewLine, 1000);
 		  	});
 		}());
-		/*axios.get('http://' + Constants.URL + ':8080/api/lines', {
-		        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-		      })
-		      .then(res => {
-		        const lines = res.data;
-		        this.setState({ lines });
-		      });*/
 
-		    	axios.get('http://' + Constants.URL + ':8080/api/showLine', {
-						    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-				      })
-				       .then(res => {
-					     console.log(res);
-					     const currentLineReply = res.data;
-					     this.setState({ currentLine : currentLineReply.currentLine });
-				     });
+		(function pollServerForCurrentLine() {
+    		axios.get('http://' + Constants.URL + ':8080/api/showLine', {
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+		    })
+		    .then(res => {
+			    console.log(res);
+			    const currentLineReply = res.data;
+			    self.setState({ currentLine : currentLineReply.currentLine });
+			    setTimeout(pollServerForCurrentLine, 1000);
+		     });
+		}());
 	}
 
 	render() {

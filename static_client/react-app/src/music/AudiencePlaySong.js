@@ -36,12 +36,13 @@ class AudiencePlaySong extends Component {
     return (
       <div className={ this.state.palette } >
        <div className="header-spacer"></div>
-        <header className="music-header">
-         <h1 className="App-title">♫ Improvised Musical! ♫</h1>
+        <header className="music-header audience">
+          <a class="applogo" href="App">⬅️</a>
+           <h1 className="App-title">♫ Improvised Musical! ♫</h1>
         </header>
         <div className="table">
           <div className="row">
-              
+
               <form action="">
                 <input type="radio" value='none' checked={ this.state.palette === 'none' } onChange={this.handlePaletteChange}/> Rock
                 <input type="radio" value='jazz' checked={ this.state.palette === 'jazz' } onChange={this.handlePaletteChange}/> Lounge

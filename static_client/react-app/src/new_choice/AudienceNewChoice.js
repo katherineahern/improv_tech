@@ -17,8 +17,9 @@ class AudienceNewChoice extends Component {
 		return (
 			<div>
    			<div className="header-spacer"></div>
-  			<header className="choice-header">
-	  			<h1 className="App-title">New Choice!</h1>
+  			<header className="choice-header audience">
+				  <a class="applogo" href="App">⬅️</a>
+					<h1 className="App-title">New Choice!</h1>
   			</header>
 
 				<h2>You control the scene:</h2>

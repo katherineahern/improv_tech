@@ -40,6 +40,12 @@ class AudiencePlaySong extends Component {
           <a class="applogo" href="App">⬅️</a>
            <h1 className="App-title">♫ Improvised Musical! ♫</h1>
         </header>
+        <div class="pad15">
+          <p>Choose a genre and tap an emotion that seems right for the moment...& make the actors sing!
+          </p>
+          <tip class="light">Once the music starts, avoid buttons onscreen. Most will interrupt the music!
+          </tip>
+        </div>
         <div className="table">
           <div className="row">
 

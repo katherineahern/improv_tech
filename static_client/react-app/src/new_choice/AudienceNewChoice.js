@@ -22,10 +22,12 @@ class AudienceNewChoice extends Component {
 					<h1 className="App-title">New Choice!</h1>
   			</header>
 
-				<h2>You control the scene:</h2>
-				<p>When the actor says something you want them to change, tap the "New Choice" button.</p>
-				<p>They will come up with a new line and continue from there as though the last line never happened.</p>
-				<p>...</p>
+				<div class="pad15">
+  				<h2>You control the scene:</h2>
+				  <p>When the actor says something you want them to change, tap the "New Choice" button.</p>
+				  <p>They will come up with a new line and continue from there as though the last line never happened.</p>
+				  <p>...</p>
+				</div>
 				<button onClick={this.newChoice}>📣 - New Choice! - ⏪</button>
 			</div>
 		);

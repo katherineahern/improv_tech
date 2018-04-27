@@ -13,7 +13,7 @@ body {
   align: middle;
 }
 .none {
-  background-color: var(--none);
+  background-color: var(--rock);
 }
 
 #musicnotes::after {

@@ -36,12 +36,19 @@ class AudiencePlaySong extends Component {
     return (
       <div className={ this.state.palette } >
        <div className="header-spacer"></div>
-        <header className="music-header">
-         <h1 className="App-title">♫ Improvised Musical! ♫</h1>
+        <header className="music-header audience">
+          <a class="applogo" href="App">⬅️</a>
+           <h1 className="App-title">♫ Improvised Musical! ♫</h1>
         </header>
+        <div class="pad15">
+          <p>Choose a genre and tap an emotion that seems right for the moment...& make the actors sing!
+          </p>
+          <tip class="light">Once the music starts, avoid buttons onscreen. Most will interrupt the music!
+          </tip>
+        </div>
         <div className="table">
           <div className="row">
-              
+
               <form action="">
                 <input type="radio" value='none' checked={ this.state.palette === 'none' } onChange={this.handlePaletteChange}/> Rock
                 <input type="radio" value='jazz' checked={ this.state.palette === 'jazz' } onChange={this.handlePaletteChange}/> Lounge

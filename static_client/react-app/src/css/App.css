@@ -1,5 +1,6 @@
 :root {
     --none:#efeff4;
+    --rock:#667;
     --lounge1:#24956D /*OLD 99ccff*/;
     --funk1:#DEAF35 /*OLD c2c2a3*/;
     --latin1:#DE6C35 /*OLD ffcc99*/;
@@ -15,19 +16,26 @@ body {
 .App {
   text-align: center;
 }
+.applogo{
+  font-size: 2.2em;
+  text-decoration: none;
+  text-shadow:0px 0px 2px #fff;
+  /*background: url('../images/happy.svg');
+  background-repeat: no-repeat;
+  /*background-position: center;*/
+  position: fixed;
+  left: 20px;
+  top:0px;
+  padding-left: 35px;
+  padding-top:15px;
+}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
+/*  background: */
 }
 
-/*.App-header {
-  background: linear-gradient(to right, var(--headleft), var(--headright));
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-*/
 header {
   position:fixed;
   top:0px;
@@ -39,12 +47,24 @@ header {
   box-shadow: 0px 6px 22px -8px rgba(0,0,0,0.75);
 }
 .header-spacer{
-  height: 88px;
+  height: 68px;
 }
 
 header h1, header h4 {
   color: white;
   line-height: 11px;
+}
+@media only screen and (max-width: 600px) {
+    header h1.App-title {
+        font-size: 1.3em;
+        padding-top: 4px;
+        }
+    .applogo{
+        padding-left: 0px;
+    }
+    tip::before {
+      float:left;
+    }
 }
 
 .App-cover  {
@@ -89,12 +109,17 @@ body {
 .tile {
     background-color: #fff;
     box-shadow: grey 0px 1px 5px;
-    padding: 7px;
+    padding: 15px;
     margin: 1%;
     margin-top: 0px;
 }
+
 .row.tile {
   max-width: 700px;
+}
+
+.pad15 {
+  padding: 15px;
 }
 
 input {
@@ -124,7 +149,9 @@ input {
   background-color: white;
   border: 1px solid #444;
 }
-
+.light {
+  color: #ddddda;
+}
 
 .blur {
   text-shadow:0px 0px 5px #ffffff;
@@ -133,4 +160,23 @@ input {
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+tip {
+  color: #666;
+  font-style: italic;
+  padding-right: 5px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: justify;
+}
+
+tip::before {
+  content: "! ";
+  font-weight: 700;
+  font-size: 2.6em;
+  color:var(--headleft);
+  vertical-align: middle;
+  margin-top: -7px;
+  text-align: right;
 }

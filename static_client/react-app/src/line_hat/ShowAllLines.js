@@ -11,19 +11,19 @@ class ShowAllLines extends Component {
 	    	currentLine: 0,
 	      	lines: [{ line: "initial line" }]
 	    };
-	    
+
 	}
 
 	componentDidMount() {
-		
+
 		var self = this;
 		(function pollServerForNewLine() {
-			
+
 		  	axios.get('http://' + Constants.URL +  ':8080/api/lines', {
 	        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 	      	})
 	      	.then(res => {
-		    
+		   
 				const lines = res.data;
 		    	self.setState({ lines });
 		    	setTimeout(pollServerForNewLine, 1000);
@@ -46,12 +46,19 @@ class ShowAllLines extends Component {
 	render() {
     	return (
         <div>
-        	<h1>Lines</h1>
-		    <div>
-	          	{this.state.lines.map(line =>	          	
-		          	<div id="showCurrentLine" className={line === this.state.lines[this.state.currentLine] ? 'showCurrentLine':'showLine' }>	            	
+
+			  	<div className="header-spacer"></div>
+				  <header className="audience">
+            <a class="applogo" href="App">⬅️</a>
+						<h1 className="App-title" id="hat">Lines</h1>
+				  </header>
+
+
+		    <div className ="lineList">
+	          	{this.state.lines.map(line =>
+		          	<div id="showCurrentLine" className={line === this.state.lines[this.state.currentLine] ? 'showCurrentLine':'showLine' }>
 			            {line.line}
-		            </div>    
+		            </div>
 		        )}
 		   	</div>
 

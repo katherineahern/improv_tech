@@ -16,27 +16,27 @@ class App extends Component {
        <div class="flex-container">
         <div class="col-6">
           <div class="tile">
-           <h3>Songmaster!</h3>
+           <h3>Songmaster</h3>
            <p><a href="AudienceMusic" class = "button bluebg" >🎶</a></p>
           </div>
         </div>
-        
+
          <div class="col-6">
              <div class="tile">
-              <h3>Add a Line!</h3>
+              <h3>Add a Line</h3>
               <p><a href="LineHat" class = "button bluebg" >🖋️</a></p>
              </div>
           </div>
-          
+
           <div class="col-6">
              <div class="tile">
-              <h3>Audience New Choice</h3>
+              <h3>New Choice</h3>
               <p><a href="audienceNewChoice" class = "button bluebg" >📣</a></p>
              </div>
           </div>
-          
-          
-          
+
+
+
          </div>
        </div>
     </div>

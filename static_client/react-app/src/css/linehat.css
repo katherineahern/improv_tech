@@ -6,7 +6,13 @@ body {
 }
 
 #hat::after {
-    content: " 🎩";
+    content: "   🎩   ";
+    display: inline-block;
+    min-width: 2em;
+    transform: rotate(195deg);
+}
+h1#hat {
+  margin-right:-32px;
 }
 
 .row{
@@ -51,6 +57,10 @@ input[type=submit]:hover {
     margin: 20px;
 }
 
+.lineList {
+  margin: 15px;
+}
+
 .getline input {
     max-width: 300px;
 }
@@ -58,6 +68,9 @@ input[type=submit]:hover {
 
 .showCurrentLine {
     font-size: 2.5em;
+    margin-top: .5em;
+    margin-bottom: .5em;
+/* max-width: 20%; */
 }
 .showLine {
      max-width: 300px;

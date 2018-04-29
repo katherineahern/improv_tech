@@ -46,14 +46,23 @@ class GetLine extends Component {
 	        this.setState({ lines });
 	      });
 
-     	axios.get('http://'  + Constants.URL + ':8080/api/currentLine', {
-        	headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-      	})
-      	.then(res => {
-      		console.log("did something");
-      		console.log(res);
+     	
 
-      	});
+      	var self = this;
+		(function pollServerForNewLine() {
+
+		  	axios.get('http://' + Constants.URL +  ':8080/api/lines', {
+	        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+	      	})
+	      	.then(res => {
+		   
+				const lines = res.data;
+		    	self.setState({ lines });
+		    	setTimeout(pollServerForNewLine, 1000);
+		  	});
+		}());
+
+		
   	}
 
 

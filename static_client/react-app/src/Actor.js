@@ -12,11 +12,11 @@ class Actor extends Component {
       <div className="App-cover">
         <h4>Improvisational Technology presents...</h4>
         <h2>Actor Panel</h2>
-        <div class="flex-container">
-          <div class="col-6">
-            <div class="tile">
+        <div className="flex-container">
+          <div className="col-6">
+            <div className="tile">
               <h3>What is my line?!</h3>
-              <p><a href="GetLine" class = "button blur" >⁉️</a></p>
+              <p><a href="GetLine" className= "button blur" >⁉️</a></p>
             </div>
           </div>
           </div>

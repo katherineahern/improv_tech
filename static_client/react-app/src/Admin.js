@@ -13,30 +13,30 @@ class Admin extends Component {
 
         <h4>Improvisational Technology presents...</h4>
         <h2>Admin Panel</h2>
-        <div class="flex-container">
-          <div class="col-6">
-             <div class="tile">
+        <div className="flex-container">
+          <div className="col-6">
+             <div className="tile">
               <h3>Admin Music!</h3>
-              <p><a href="AdminMusic" class = "button blur whitebg" >⚙️</a></p>
+              <p><a href="AdminMusic" className = "button blur whitebg" >⚙️</a></p>
              </div>
           </div>
 
-          <div class="col-6">
-             <div class="tile">
+          <div className="col-6">
+             <div className="tile">
               <h3>Admin New Choice</h3>
-              <p><a href="adminNewChoice" class = "button whitebg" >⚙️</a></p>
+              <p><a href="adminNewChoice" className = "button whitebg" >⚙️</a></p>
              </div>
           </div>
-          <div class="col-6">
-             <div class="tile">
+          <div className="col-6">
+             <div className="tile">
               <h3>Admin Lines</h3>
-              <p><a href="hatAdmin" class = "button whitebg" >⚙️️</a></p>
+              <p><a href="hatAdmin" className = "button whitebg" >⚙️️</a></p>
              </div>
           </div>
-          <div class="col-6">
-             <div class="tile">
+          <div className="col-6">
+             <div className="tile">
               <h3>Show all lines to audience</h3>
-              <p><a href="showAllLines" class = "button whitebg" >⚙️️</a></p>
+              <p><a href="showAllLines" className = "button whitebg" >⚙️️</a></p>
              </div>
           </div>
           </div>

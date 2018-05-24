@@ -3,6 +3,7 @@ import '../css/App.css';
 import '../css/index.css';
 import Song from './Song';
 import * as Constants from '../Constants';
+import Header from '../Header';
 
 var Socket;
 class AudiencePlaySong extends Component {
@@ -36,10 +37,7 @@ class AudiencePlaySong extends Component {
     return (
       <div className={ this.state.palette } >
        <div className="header-spacer"></div>
-        <header className="music-header audience">
-          <a class="applogo" href="App">⬅️</a>
-           <h1 className="App-title">♫ Improvised Musical! ♫</h1>
-        </header>
+        <Header propsClass={'music-header audience'} title={'♫ Improvised Musical! ♫'} />
         <div class="pad15">
           <p>Choose a genre and tap an emotion that seems right for the moment...& make the actors sing!
           </p>

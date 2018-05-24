@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../css/linehat.css';
 import axios from 'axios';
 import * as Constants from '../Constants';
+import Header from '../Header';
 
 var lineList = [];
 function addLine() {}; //defined here to prevent error
@@ -72,13 +73,14 @@ class LineHat extends Component {
   }
 
   	render() {
+
     	return (
         <div className="App">
+
 				  <div className="header-spacer"></div>
-          <header className="hat-header">
-            <a class="applogo" href="App">⬅️</a>
-            <h1 className="App-title" id="hat">Lines from a Hat!</h1>
-          </header>
+          
+          <Header propsClass={'hat-header'} headerId={'hat'} title={'Lines from a Hat!'} />
+  
         <div class="pad15">
 				  <p>Follow the prompts to add lines of dialogue in the box below. The actors will use them in a scene!</p>
           <tip>Tip: If you have trouble thinking of anything you can refresh the page to get a new prompt</tip>

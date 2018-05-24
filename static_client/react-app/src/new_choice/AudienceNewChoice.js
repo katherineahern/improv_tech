@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as Constants from '../Constants';
+import Header from '../Header';
 
 var Socket;
 class AudienceNewChoice extends Component {
@@ -17,11 +18,7 @@ class AudienceNewChoice extends Component {
 		return (
 			<div>
    			<div className="header-spacer"></div>
-  			<header className="choice-header audience">
-				  <a class="applogo" href="App">⬅️</a>
-					<h1 className="App-title">New Choice!</h1>
-  			</header>
-
+  				<Header propsClass={'choice-header audience'} title={'New Choice!'} />
 				<div class="pad15">
   				<h2>You control the scene:</h2>
 				  <p>When the actor says something you want them to change, tap the "New Choice" button.</p>

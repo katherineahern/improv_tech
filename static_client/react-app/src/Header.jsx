@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as Constants from './Constants';
+import axios from 'axios';
 
 class Header extends Component {
 	constructor(props) {
@@ -7,6 +8,16 @@ class Header extends Component {
 		this.state = {
 	    	heartbeat: false
 	    };
+
+	    axios.get('http://' + Constants.URL +  ':8080/api/heartbeat', {
+	        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+	      })
+	      .then(res => {
+	      	console.log(res);
+	        const heartbeat = res.data;
+	        this.setState({ heartbeat });
+	      });
+
 		this.renderBanner = this.renderBanner.bind(this);
 	}
 	renderBanner() {

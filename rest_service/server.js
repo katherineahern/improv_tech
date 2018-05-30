@@ -125,6 +125,12 @@ router.route('/resetCurrentLine')
         currentLine = 0;
     });
 
+router.route('/heartbeat')
+
+    .get(function(req, res) {
+        res.json({ heartbeat: true });
+    });
+
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api

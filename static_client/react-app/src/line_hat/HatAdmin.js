@@ -17,14 +17,19 @@ class HatAdmin extends Component {
 	}
 
 	componentDidMount() {
-		axios.get('http://' + Constants.URL + ':8080/api/lines', {
-		        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-		      })
-		      .then(res => {
-		      	console.log(res);
-		        const lines = res.data;
-		        this.setState({ lines });
-		      });
+		var self = this;
+		(function pollServerForNewLine() {
+
+		  	axios.get('http://' + Constants.URL +  ':8080/api/lines', {
+	        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+	      	})
+	      	.then(res => {
+		   
+				const lines = res.data;
+		    	self.setState({ lines });
+		    	setTimeout(pollServerForNewLine, 1000);
+		  	});
+		}());
 	}
 
 	resetCurrentLine() {
@@ -50,6 +55,7 @@ class HatAdmin extends Component {
 		        this.setState({ lines });
 		      });
 	    
+
   	}
 
 	render() {
@@ -63,11 +69,13 @@ class HatAdmin extends Component {
 		    <div>
 	          {this.state.lines.map(line =>
 	          	<div>
-	            	<a id={line.timestamp} key={line.timestamp} onClick={this.deleteLine} >
-		            	{line.timestamp}<br/>
-		            	{line.line}
-		            </a>
-	            </div>
+		          	<div className={'col6'}>	
+			            {line.line}
+			        </div>
+			        <div className={'col6'}>   
+			            <button id={line.timestamp} key={line.timestamp}  onClick={this.deleteLine}> Delete Line</button>
+		            </div>
+		        </div>
 	          )}
 		   	</div>     
 		       

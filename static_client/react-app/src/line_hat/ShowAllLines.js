@@ -15,15 +15,12 @@ class ShowAllLines extends Component {
 	}
 
 	componentDidMount() {
-
 		var self = this;
 		(function pollServerForNewLine() {
-
 		  	axios.get('http://' + Constants.URL +  ':8080/api/lines', {
 	        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 	      	})
 	      	.then(res => {
-		   
 				const lines = res.data;
 		    	self.setState({ lines });
 		    	setTimeout(pollServerForNewLine, 1000);
@@ -39,30 +36,29 @@ class ShowAllLines extends Component {
 			    const currentLineReply = res.data;
 			    self.setState({ currentLine : currentLineReply.currentLine });
 			    setTimeout(pollServerForCurrentLine, 1000);
-		     });
+		    });
 		}());
 	}
 
 	render() {
     	return (
-        <div>
+	        <div>
 
-			  	<div className="header-spacer"></div>
-				  <header className="audience">
-            <a class="applogo" href="App">⬅️</a>
+				<div className="header-spacer"></div>
+					<header className="audience">
+	            		<a class="applogo" href="App">⬅️</a>
 						<h1 className="App-title" id="hat">Lines</h1>
-				  </header>
+					</header>
 
 
-		    <div className ="lineList">
-	          	{this.state.lines.map(line =>
-		          	<div id="showCurrentLine" className={line === this.state.lines[this.state.currentLine] ? 'showCurrentLine':'showLine' }>
-			            {line.line}
-		            </div>
-		        )}
-		   	</div>
-
-        </div>
+			    	<div className ="lineList">
+		          	{this.state.lines.map(line =>
+			          	<div id="showCurrentLine" className={line === this.state.lines[this.state.currentLine] ? 'showCurrentLine':'showLine' }>
+				            {line.line}
+			            </div>
+			        )}
+			   	</div>
+	        </div>
     	);
   	}
 }

@@ -183,7 +183,5 @@ newChoiceWebsocket.on('connection', function connection(ws) {
             client.send(messageString);
         });
     });
-    //get new choice message
-
-    //send new choice message
+    
 });

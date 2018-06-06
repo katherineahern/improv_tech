@@ -72,46 +72,44 @@ class LineHat extends Component {
     this.setState({ prompt: Math.floor(Math.random() * this.promptList.length) });
   }
 
-  	render() {
+	render() {
 
-    	return (
-        <div className="App">
+  	return (
+      <div className="App">
 
-				  <div className="header-spacer"></div>
-          
-          <Header propsClass={'hat-header'} headerId={'hat'} title={'Lines from a Hat!'} />
-  
+			  <div className="header-spacer"></div>
+        
+        <Header propsClass={'hat-header'} headerId={'hat'} title={'Lines from a Hat!'} />
+
         <div class="pad15">
-				  <p>Follow the prompts to add lines of dialogue in the box below. The actors will use them in a scene!</p>
+			    <p>Follow the prompts to add lines of dialogue in the box below. The actors will use them in a scene!</p>
           <tip>Tip: If you have trouble thinking of anything you can refresh the page to get a new prompt</tip>
-				</div>
-				<div class ="row">
+			  </div>
+			  <div class ="row">
           <div class ="tile">
-          <p id="demo">{this.promptList[this.state.prompt]}</p>
-           <form onSubmit={this.handleSubmit}>
-             <label for="audGetInput" id= "audPrompt">...</label>
-             <input type="text" onChange={this.handleChange}  name="line" ref="line" placeholder="1st thing that comes to mind! 3rd?"></input>
+            <p id="demo">{this.promptList[this.state.prompt]}</p>
+            <form onSubmit={this.handleSubmit}>
+              <label for="audGetInput" id= "audPrompt">...</label>
+              <input type="text" onChange={this.handleChange}  name="line" ref="line" placeholder="1st thing that comes to mind! 3rd?"></input>
 
-             <input type="submit" value="Submit" id="pen"></input>
-           </form>
+              <input type="submit" value="Submit" id="pen"></input>
+            </form>
 
           </div>
-         </div>
         </div>
-    	);
-  	}
+      </div>
+  	);
+	}
 
-  	handleClick () {
-  		let config = {
-		    headers: {
-	    	  "Content-Type": "application/x-www-form-urlencoded"
-    		}
-      }
-  		axios.get('http://' + Constants.URL + ':8080/api/lines', {}, config)
-    		.then(response => this.setState({response: response }))
-
-
-  	}
+	handleClick () {
+		let config = {
+	    headers: {
+    	  "Content-Type": "application/x-www-form-urlencoded"
+  		}
+    }
+		axios.get('http://' + Constants.URL + ':8080/api/lines', {}, config)
+  		.then(response => this.setState({response: response }))
+	}
 
 }
 

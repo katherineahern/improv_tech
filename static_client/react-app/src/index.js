@@ -18,43 +18,45 @@ import './css/App.css';
 
 const Solo = () => {
 	return (
-		<div className="App-cover">
-
-          	<h4>Improvisational Technology presents...</h4>
-          	<h2>The Internet: Live!</h2>
-            <div class="flex-container">
+		<Container>
               	<NavButton title="Improvise a Song!">
               		<a href="music" class = "button" >▶️</a>
                 </NavButton>
               	<NavButton title="New Choice">
                   	<a href="soloNewChoice" class = "button" >🤷</a>
                 </NavButton>
-          	</div>
-      	</div>);
+        </Container>
+    );
 }
 
 const App = () => {
 	return (
+  		<Container>
+           	<NavButton title="Songmaster">
+           		<a href="AudienceMusic" className= "button bluebg" >🎶</a>
+          	</NavButton>
 
-      	<div className="App-cover">
+       		<NavButton title="Add a Line" >
+                <a href="LineHat" className= "button bluebg" >🖋️</a>
+            </NavButton>
+
+        	<NavButton title="New Choice" >
+            	<a href="audienceNewChoice" className= "button bluebg" >📣</a>
+          	</NavButton>
+        </Container>
+    );
+}
+
+const Container = (props) => {
+	return (
+		<div className="App-cover">
         	<h4>Improvisational Technology presents...</h4>
           	<h2>The Internet: Live!</h2>
           	<div className="flex-container">
-               	<NavButton title="Songmaster">
-               		<a href="AudienceMusic" className= "button bluebg" >🎶</a>
-              	</NavButton>
-
-           		<NavButton title="Add a Line" >
-	                <a href="LineHat" className= "button bluebg" >🖋️</a>
-	            </NavButton>
-
-            	<NavButton title="New Choice" >
-                	<a href="audienceNewChoice" className= "button bluebg" >📣</a>
-              	</NavButton>
-            </div>
+          		{props.children}
+          	</div>
         </div>
-
-    );
+	);
 }
 
 const NavButton = (props) => {
@@ -67,6 +69,7 @@ const NavButton = (props) => {
         </div>
 	);
 }
+
 ReactDOM.render(
 	<Router>
 		<Switch>

@@ -23,16 +23,13 @@ class MusicalAccompaniment extends Component {
   }
 
   render() {
-    const red = "red";
+    
     return (
       <div className={ this.state.palette } >
         <div className="table">
-          <div style={{background: red}}>
-            This will be functional during next show, which is: <br/>
-            eventbrite link
-          </div>
+          
           <div className="row">
-              {this.state.palette.toUpperCase()}
+              
               <form action="">
                 <input type="radio" value='none' checked={ this.state.palette === 'none' } onChange={this.handlePaletteChange}/> None
                 <input type="radio" value='jazz' checked={ this.state.palette === 'jazz' } onChange={this.handlePaletteChange}/> Lounge

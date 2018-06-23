@@ -4,6 +4,7 @@ import '../css/index.css';
 import Song from './Song';
 import Button from 'material-ui/Button';
 import Grid from 'material-ui/Grid';
+import Radio from 'material-ui/Radio';
 
 class MusicalAccompaniment extends Component {
   constructor(props) {
@@ -30,10 +31,10 @@ class MusicalAccompaniment extends Component {
           <Grid>
               
               <form action="">
-                <input type="radio" value='none' checked={ this.state.palette === 'none' } onChange={this.handlePaletteChange}/> Rock
-                <input type="radio" value='jazz' checked={ this.state.palette === 'jazz' } onChange={this.handlePaletteChange}/> Lounge
-                <input type="radio" value='funk' checked={ this.state.palette === 'funk' } onChange={this.handlePaletteChange}/> Funk
-                <input type="radio" value='latin' checked={ this.state.palette === 'latin' } onChange={this.handlePaletteChange}/> Latin
+                <Radio value='none' checked={ this.state.palette === 'none' } onChange={this.handlePaletteChange}/> Rock
+                <Radio value='jazz' checked={ this.state.palette === 'jazz' } onChange={this.handlePaletteChange}/> Lounge
+                <Radio value='funk' checked={ this.state.palette === 'funk' } onChange={this.handlePaletteChange}/> Funk
+                <Radio value='latin' checked={ this.state.palette === 'latin' } onChange={this.handlePaletteChange}/> Latin
               </form>
           </Grid>
           <Grid>

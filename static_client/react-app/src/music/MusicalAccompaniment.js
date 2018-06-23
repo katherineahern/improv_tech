@@ -1,10 +1,9 @@
-//This file is deprecated. Do not update!
-//(I accidentally worked on this and couldn't figure out what I was doing wrong!)
-
 import React, { Component } from 'react';
 import '../css/App.css';
 import '../css/index.css';
 import Song from './Song';
+import Button from 'material-ui/Button';
+import Grid from 'material-ui/Grid';
 
 class MusicalAccompaniment extends Component {
   constructor(props) {
@@ -26,60 +25,63 @@ class MusicalAccompaniment extends Component {
     
     return (
       <div className={ this.state.palette } >
-        <div className="table">
+        <Grid>
           
-          <div className="row">
+          <Grid>
               
               <form action="">
-                <input type="radio" value='none' checked={ this.state.palette === 'none' } onChange={this.handlePaletteChange}/> None
+                <input type="radio" value='none' checked={ this.state.palette === 'none' } onChange={this.handlePaletteChange}/> Rock
                 <input type="radio" value='jazz' checked={ this.state.palette === 'jazz' } onChange={this.handlePaletteChange}/> Lounge
                 <input type="radio" value='funk' checked={ this.state.palette === 'funk' } onChange={this.handlePaletteChange}/> Funk
                 <input type="radio" value='latin' checked={ this.state.palette === 'latin' } onChange={this.handlePaletteChange}/> Latin
               </form>
-          </div>
-          <div className="row">
-             <div className="tile">
+          </Grid>
+          <Grid>
+             <Button>
                   <Emotion emotionName="Happy" palette={ this.state.palette } />
-             </div>
-             <div className="tile">
+             </Button>
+             <Button>
                   <Emotion emotionName="Sad" palette={ this.state.palette } />
-             </div>
-          </div>
-          <div className="row">
-            <div className="tile">
+             </Button>
+          </Grid>
+          <Grid>
+            <Button>
               <Emotion emotionName="Angry" palette={ this.state.palette } />
-            </div>
-            <div className="tile">
+            </Button>
+            <Button>
               <Emotion emotionName="Fearful" palette={ this.state.palette } />
-            </div>
-          </div>
-        </div>
+            </Button>
+          </Grid>
+        </Grid>
       </div>
     );
   }
 }
 
 class Emotion extends Component {
+  
   constructor(props) {
     super(props);
-    this.playSong = this.playSong.bind(this);
   }
-  playSong(feeling) {
-    var audio = this.refs['audio'];
-    audio.load();
-    audio.currentTime = 0;
-    audio.play();
-  }
+  
+
   render() {
+    let playSong = (feeling) => {
+      var audio = this.refs['audio'];
+      audio.load();
+      audio.currentTime = 0;
+      audio.play();
+    }
     return (
-      <div className="col" >
-          <img src={ require('../images/' + this.props.emotionName.toLowerCase() + '.svg') } onClick={this.playSong}/><br/>
+      <div>
+          <img src={ require('../images/' + this.props.emotionName.toLowerCase() + '.svg') } onClick={playSong}/><br/>
           <audio controls ref='audio' key={ this.props.emotionName + this.props.palette } > //key to rerender audio
-            <Song emotion={this.props.emotionName.toLowerCase()} palette={ this.props.palette } />
+            <Song emotion={ this.props.emotionName.toLowerCase() } palette={ this.props.palette } />
           </audio>
       </div>
     );
   }
+  
 }
 
 export default MusicalAccompaniment;

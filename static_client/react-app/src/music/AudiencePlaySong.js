@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../css/App.css';
 import '../css/index.css';
+import './emotion.css';
 import Song from './Song';
 import * as Constants from '../Constants';
 import Header from '../Header';
@@ -41,8 +42,6 @@ class AudiencePlaySong extends Component {
         <div class="pad15">
           <p>Choose a genre and tap an emotion that seems right for the moment...& make the actors sing!
           </p>
-          <tip class="light">Once the music starts, avoid buttons onscreen. Most will interrupt the music!
-          </tip>
         </div>
         <div className="table">
           <div className="row">
@@ -54,15 +53,20 @@ class AudiencePlaySong extends Component {
                 <input type="radio" value='latin' checked={ this.state.palette === 'latin' } onChange={this.handlePaletteChange}/> Latin
               </form>
           </div>
-
-            <div className="row">
+          <div className="row">
+            <div className="emotion">
                 <img src={ require('../images/happy.svg') } onClick={() => this.sendPaletteAndEmotion('happy')}/>
+            </div>
+            <div className="emotion">
                 <img src={ require('../images/sad.svg') } onClick={() => this.sendPaletteAndEmotion('sad')}/>
             </div>
-            <div className="row">
-                <img src={ require('../images/angry.svg') } onClick={() => this.sendPaletteAndEmotion('angry')}/>
+            <div className="emotion">
+              <img src={ require('../images/angry.svg') } onClick={() => this.sendPaletteAndEmotion('angry')}/>
+            </div>
+            <div className="emotion">
                 <img src={ require('../images/fearful.svg') } onClick={() => this.sendPaletteAndEmotion('fearful')}/>
             </div>
+          </div>
         </div>
       </div>
     );

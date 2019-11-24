@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import ReactWebsocket from 'react-websocket';
 import Song from './Song';
 import * as Constants from '../Constants';
 
@@ -32,10 +30,16 @@ class AdminMusic extends Component {
 
   playSong() {
     this.setState({ key: Math.random() });
+    console.log(this.refs['audio'].currentTime);
     var audio = this.refs['audio'];
-    audio.load();
-    audio.currentTime = 0;
-    audio.play();
+
+    console.log(audio.currentTime);
+    
+    
+      audio.load();
+      audio.currentTime = 0;
+      audio.play();
+    
   }
 
   render() {

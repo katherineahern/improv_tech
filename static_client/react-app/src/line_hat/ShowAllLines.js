@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import * as Constants from '../Constants';
 
+/* make functional and glue in redux vals */
+
 class ShowAllLines extends Component {
 
 	constructor(props) {

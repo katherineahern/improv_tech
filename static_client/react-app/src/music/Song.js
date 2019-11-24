@@ -1,8 +1,4 @@
-import React, { Component } from 'react';
-import happy from './songs/happy_cha_cha.m4a';
-import sad from './songs/sad.m4a';
-import angry from './songs/angry.m4a';
-import fearful from './songs/fearful.m4a';
+import React from 'react';
 
 import funk_happy from './songs/funk_happy.m4a';
 import jazz_happy from './songs/jazz_happy.m4a';

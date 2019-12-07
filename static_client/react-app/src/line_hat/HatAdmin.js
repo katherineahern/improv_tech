@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import * as Constants from '../Constants';
+import { createStore, applyMiddleware } from 'redux'
+import createSagaMiddleware from 'redux-saga'
+import reducer from '../store/reducers'
+import { helloSaga } from '../store/sagas'
 
 class HatAdmin extends Component {
 
@@ -14,6 +18,15 @@ class HatAdmin extends Component {
 
 	    this.deleteLine = this.deleteLine.bind(this);
 	    this.resetCurrentLine = this.resetCurrentLine.bind(this);
+
+	    const sagaMiddleware = createSagaMiddleware()
+		const store = createStore(
+		  reducer,
+		  applyMiddleware(sagaMiddleware)
+		)
+		sagaMiddleware.run(helloSaga)
+
+		const action = type => store.dispatch({type})
 	}
 
 	componentDidMount() {

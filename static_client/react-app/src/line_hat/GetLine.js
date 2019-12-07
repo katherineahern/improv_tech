@@ -17,10 +17,6 @@ class GetLine extends Component {
 	    this.handleSubmit = event => {
 		    event.preventDefault();
 
-		    const line = {
-		      line: this.state.line
-		    };
-
 		    axios.get('http://' + Constants.URL + ':8080/api/currentLine', {
 	        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 		      })
